@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- 
+CODE BY
+			Amy Le
+			CIS 14 A
+			Project 1
+			Isshinryu Website 
+	
+
+ Credit for patterns/themes/texture belongs to
+	Tweed by Simon Leo
+	Brick Wall by Benjamin Ward
+	from subtlepatterns.com
+
+		-->
+	
+<!-- STILL NEED TO INCORPORATE REAL EXPRESSIONS TO VALIDATE ENTRIES -->		
+		
+		<!-- Classes and Rates Page -->
+		<!-- link all necessary stylesheets/scripts here -->
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="Isshinryu_Stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="Isshinryu_Stylesheet2.css">
+		<title>Isshinryu Karate</title>
+		<script type="text/javascript" src="Forms.js"></script>
+		<script type="text/javascript">
+			/*
+				Amy Le
+				CIS 14 A
+				Isshinryu Site
+				
+				Javascript code to implement cookies
+			 */
+			 
+			 
+			 //when user submits form, single cookie created
+			 //create function to set cookies (name=value) from data entered into form
+			 //cookies saved as a single string that contains name value pairs separated by "; "
+			 // ex) cookie = "name=value; name=value; name=value;"
+			 
+			 function getFormCookies () {
+				//create empty object to store cookie name/value pairs and to return
+				var cookies = {};
+				//get all cookies from submitted form
+				var formCookies = document.cookie;
+				//take into account that user may not have cookies if first visit, will need to return an empty cookies object
+				if (formCookies === ""){
+					return cookies;
+				}
+				//cookies stored as one large string in array
+				//separate each set of name value pairs from each other to create separate cookies rather than one giant cookie
+				var separateCookies = formCookies.split("; ");
+				//when split, returns an array, want to loop through each array and separate the name from its value and assign to appropriate variables
+				//array now holds [name=value, name=value, name=value]
+				for (var i = 0; i < separateCookies.length; i ++){
+					var singleCookie = separateCookies[i];
+					//assign variable to =, get range of characters for name and assign to corresponding var, same for value
+					var position = singleCookie.indexOf("=");
+					var name = singleCookie.substring(0, position);
+					var value = singleCookie.substring (position+1);
+					//use decodeURIComponent
+					value = decodeURIComponent(value);
+					//assign separated name value pairs to the cookies object
+					cookies[name] = value;
+				}
+				return cookies;
+			 }
+			 
+			 //now that have the large, single cookie split into smaller name and value pairs in object, need to assign each to its own cookie
+			 
+			 //function to reassign name value pairs into a cookie
+			 //layout for a cookie is name=value
+			 
+			 function setIndivCookies (name, value, life){
+				var cookie = name + "=" + encodeURIComponent(value);
+				//ensure that life is a number, set the max-age if it is
+				if (typeof life === "number"){
+					cookie += "; max-age=" + (life);
+				}
+				//create the cookie
+				document.cookie = cookie;
+			 }
+			 
+			 function checkObjEmpty (obj){
+			 	for (var name in obj){
+			 		if (obj.hasOwnProperty(name)){
+			 			return false; //if return false, means not empty (if has property)
+			 		}
+			 	}
+			 	//if return true, then empty
+			 	return true;
+			 }
+		</script>
+	</head>
+	
+	<body>
+		<!-- Logo and surrounding logo container -->
+		<div id = "content_area">
+			<div id = "logo_container">
+				<center><img src="Isshinryu_logo.jpg"></center>
+			</div>
+			
+		
+			<!-- navigation links to pages here -->
+			<div class="directory_container">
+				<center>
+					<nav>
+						<a href="Isshinryu_Home.html">Home</a>
+						<a href="Isshinryu_Our_Dojo.html">Our Dojo</a>
+						<a href="Isshinryu_Classes_and_Rates.html"><span class="on_page">Classes and Rates</span></a>
+						<a href="Isshinryu_Terminology.html">Terminology</a>
+						<a href="Isshinryu_Contact_Us.html">Contact Us</a>
+					</nav>
+				</center>	
+			</div>
+			
+						<!-- End of logo and navigation, begin content -->
+						<center><h1>Thanks for signing up!<br/>
+						We look forward to meeting you!</h1>
+						<!-- run form functions -->
+						<div>
+						<script type="text/javascript">
+							//create variable to assign form objects to
+							var $_GET = getSubmittedForm();
+							//display 
+							displaySubmittedForm($_GET);
+							
+							//get cookies
+							//note max-age is set in seconds
+							var lifeLength = 120;
+							var  signUpCookiesObj = getFormCookies(); //will return empty object if no cookies exist
+							// check if object is empty
+							if (checkObjEmpty(signUpCookiesObj)){
+								//if empty create cookies (44 max)
+								for (var name in $_GET){
+									var value = $_GET[name];
+									setIndivCookies (name, value, lifeLength);
+								}
+							}
+					
+							document.write("<p>Form cookies</p>");
+							document.write(document.cookie);
+						</script>
+						</div>
+						</center>
+						
+						
+			
+			<div class ="footer">	
+			<br>
+			<hr>
+			<footer>
+				<p>Trademark / Copyright information here / Date last modified</p>
+			</footer>
+		</div>
+	</div>	
+	</body>
+</html>

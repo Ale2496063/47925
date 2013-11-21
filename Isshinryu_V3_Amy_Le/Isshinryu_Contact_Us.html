@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<!-- 
+		
+CODE BY
+			Amy Le
+			CIS 14 A
+			Project 1
+			Isshinryu Website 
+	
+
+ Credit for patterns/themes/texture belongs to
+	Tweed by Simon Leo
+	Brick Wall by Benjamin Ward
+	from subtlepatterns.com
+
+		-->
+		
+	
+		<!-- Contact Us Page -->
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="Isshinryu_Stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="Isshinryu_Stylesheet2.css">
+		<title>Isshinryu Karate</title>
+		
+		<script type="text/javascript">
+		//javascript code to validate form before submission
+			function contactUsValidator(){ 
+				//create array of form field names
+				var contactFields = ["firstName","lastName","email","reason","messageContent"];
+				//create empty string that will be used to create/build alert message
+				var contactAlert = "";
+				
+				//loop through each field name in array to acquire the field and its value
+				for (var i=0; i < contactFields.length; i++){
+					var fieldName = contactFields[i];
+					var fieldValue = document.emailForm[fieldName].value;
+					//now with each go through switch to find match, assign regular expression to corresponding field
+					switch (fieldName) {
+					case "firstName":
+						var firstNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z][a-z]*|^[A-Z]{1}[a-z]{1}\s{1}[A-Z][a-z]*)");
+						//compare to field value
+						var fieldResult = firstNamePattern.exec(fieldValue);
+						if (fieldResult == null){
+							contactAlert += "First Name Error, ";	
+						}
+						break;
+					case "lastName":
+						var lastNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z][a-z]*|^[A-Z]{1}[a-z]{1}\s{1}[A-Z][a-z]*)");
+						var fieldResult = lastNamePattern.exec(fieldValue);
+						if (fieldResult == null){
+							contactAlert += "Last Name Error, ";
+						}
+						break;
+					case "email":
+						var emailPattern = new RegExp ("[A-Z, a-z, 0-9, \w,\!,\#,\$,\%,\&,\',\*,\+,\-,\/,\=,\?,\^,\_,\`,\{,\|,\},\~]+\@{1}[A-Z, a-z]+\.[A-Z, a-z]+");
+						var fieldResult = emailPattern.exec(fieldValue);
+						if (fieldResult == null){
+							contactAlert += "Email Error, ";
+						}
+						break;
+					case "reason":
+						var reasonPattern = new RegExp ("^[a-z]*$");
+						var fieldResult = reasonPattern.exec(fieldValue);
+						if (fieldResult == null){
+							contactAlert += "Choose Valid Reason, ";
+						}
+						break;
+					case "messageContent":
+						var messagePattern = new RegExp ("[A-Z, a-z, 0-9, \w,\!,\#,\$,\%,\&,\',\*,\+,\-,\/,\=,\?,\^,\_,\`,\{,\|,\},\~]+");
+						var fieldResult = messagePattern.exec(fieldValue);
+						if (fieldResult == null){
+							contactAlert += "Please Enter a Message";
+						}
+						break;
+					default:
+						//empty because must match a case
+					}
+				}
+				if (contactAlert != ""){
+					alert(contactAlert);
+					return false;
+				}else {
+					return true;
+				}
+			}
+		</script>
+		
+	</head>
+	
+	<body>
+		<div id = "content_area">
+			<div id = "logo_container">
+				<center><img src="Isshinryu_logo.jpg"></center>
+			</div>
+			
+			
+			<div class="directory_container">
+				<center>
+					<nav>
+						<a href="Isshinryu_Home.html">Home</a>
+						<a href="Isshinryu_Our_Dojo.html">Our Dojo</a>
+						<a href="Isshinryu_Classes_and_Rates.html">Classes and Rates</a>
+						<a href="Isshinryu_Terminology.html">Terminology</a>
+						<a href="Isshinryu_Contact_Us.html"><span class="on_page">Contact Us</span></a>
+					</nav>
+				</center>
+			</div>
+			
+			
+			<!-- End of logo and navigation, begin content -->
+			
+			<center><h1>Get In Touch With Us!</h1></center>
+			
+		<div class = "address">
+			<p>68225 E. Ramon Rd. <br>
+			Cathedral City, CA 99234</p>
+			
+			<p>Hours:<br>
+			5 PM - 8 PM</p>
+			
+			<p>Questions? Comments?</p>
+			
+			<p>(786) 375 - 6074</p>
+		</div>
+		
+		
+		<!--   Email Form   -->
+		<form action="Isshinryu_Contact_Us_Submit.html" method="GET" name="emailForm" onsubmit="return contactUsValidator()">
+			<fieldset>
+				<legend align ="center">Email Us!</legend>
+				<label for="firstName">First Name:</label>
+				<input type="text" name="firstName" id="firstName">
+				<label for="lastName">Last Name:</label>
+				<input type="text" name="lastName" id="lastName">
+				<br>
+				<label for="email">Your Email:</label>
+				<input type="text" name="email" id="email">
+				<p>What is this email concerning?</p>
+				<select name="reason" id="reason">
+					<option>-- Select --</option>
+					<option value="question">Question</option>
+					<option value="suggestion">Suggestion</option>
+					<option value="comment">Comment</option>
+					<option value="complaint">Complaint</option>
+					<option value="other">Other</option>
+				</select><br>
+				<p>Message:</p>
+				<textarea name="messageContent" id="messageContent" width="100px"></textarea>
+				<br>	
+				<input type="submit" value="Send Email">
+			</fieldset>
+		</form>	
+			
+			
+			<hr>
+			<footer>
+				<p>Trademark / Copyright information here / Date last modified</p>
+			</footer>
+		</div>
+	</body>
+</html>

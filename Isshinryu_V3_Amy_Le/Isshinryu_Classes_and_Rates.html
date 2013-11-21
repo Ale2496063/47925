@@ -1,0 +1,492 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<!-- 
+
+CODE BY
+			Amy Le
+			CIS 14 A
+			Project 1
+			Isshinryu Website 
+
+
+Credit for patterns/themes/texture belongs to
+	Tweed by Simon Leo
+	Brick Wall by Benjamin Ward
+	from subtlepatterns.com
+ 
+		-->
+		
+		
+		<!-- Classes and Rates Page -->
+		<!-- link all necessary stylesheets/scripts here -->
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+		<link rel="stylesheet" type="text/css" href="Isshinryu_Stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="Isshinryu_Stylesheet2.css">
+		<title>Isshinryu Karate</title>
+		
+		<script type="text/javascript">
+			//function to validate form entries before submission
+			function signUpFormValidator(){
+				//create an array of all name fields to be able to loop through each for validation
+				//for now this function will not validate the guardian fields until that section is viewed as optional
+				var signUpFields =["firstName","lastName","belt","age","Address1","city","state","zipcode","phone","emerFName","emerLName","AddressEmer1","cityEmer","stateEmer","zipcodeEmer","phoneEmer"];
+				//create empty string to build on with error names
+				var formAlert = "";
+				
+				//loop through each signUpField array value and assign to variable and do same for value of that field
+				for (i = 0; i < signUpFields.length; i++){
+					var fieldName = signUpFields[i];
+					var fieldValue = document.classSignUpForm[fieldName].value;
+					//create switch statement for pattern matching of each field entry 
+					//will take in the fieldName and match fieldValue with it's corresponding regex pattern
+					switch (fieldName){
+						case "firstName":
+							var studentFNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z]{1}[a-z]*|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							//compare regex with field value and assign result to a variable (if no match will return a null)
+							var studentFNameResult = studentFNamePattern.exec(fieldValue);
+							if (studentFNameResult == null){
+								formAlert += "Student First Name Error, ";
+							}
+							break;
+						case "lastName":
+							var studentLNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z]{1}[a-z]*|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var studentLNameResult = studentLNamePattern.exec(fieldValue);
+							if (studentLNameResult == null){
+								formAlert += "Student Last Name Error, ";
+							}
+							break;
+						case "belt":
+							var studentBeltPattern = new RegExp ("^[A-Z, a-z, \/, \-, \+, \s]+$");
+							var studentBeltResult = studentBeltPattern.exec(fieldValue);
+							if (studentBeltResult == null){
+								formAlert += "Belt Level Error, ";
+							}
+							break;
+						case "age":
+							var studentAgePattern = new RegExp ("^([1-9]{1}|[1-9]{1}[1-9]{1})$");
+							var studentAgeResult = studentAgePattern.exec(fieldValue);
+							if (studentAgeResult == null){
+								formAlert += "Student Age Error, ";
+							}
+							break;
+						case "Address1":
+							var studentAdd1Pattern = new RegExp ("(^[0-9]+[\+, \s]{1}[A-Z]{1}[a-z]*$|^[0-9]+[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$|^[0-9]+[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var studentAdd1Result = studentAdd1Pattern.exec(fieldValue);
+							if (studentAdd1Result == null){
+								formAlert += "Student Address1 Error, ";
+							}
+							break;
+							
+						// address2 is optional 
+						
+						case "city":
+							var studentCityPattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var studentCityResult = studentCityPattern.exec(fieldValue);
+							if (studentCityResult == null){
+								formAlert += "Student City Error, ";
+							}
+							break;
+						case "state":
+							var studentStatePattern = new RegExp ("^[A-Z]{2}$");
+							var studentStateResult = studentStatePattern.exec(fieldValue);
+							if (studentStateResult == null){
+								formAlert += "Student State Error, ";
+							}
+							break;
+						case "zipcode":
+							var studentZipPattern = new RegExp ("^[0-9]{5}$");
+							var studentZipResult = studentZipPattern.exec(fieldValue);
+							if (studentZipResult == null){
+								formAlert += "Student Zipcode Error, ";
+							}
+							break;
+						case "phone":
+							var studentPhonePattern = new RegExp ("(^[0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[\(]{1}[0-9]{3}[\)]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[\(]{1}[0-9]{3}[\)]{1}[\+, \s]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[0-9]{10}$|^[0-9]{3}[\+, \s]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[0-9]{3}[\+, \s]{1}[0-9]{3}[\+, \s]{1}[0-9]{4}$)");
+							var studentPhoneResult = studentPhonePattern.exec(fieldValue);
+							if (studentPhoneResult == null){
+								formAlert += "Student Phone Error, ";
+							}
+							break;
+						case "emerFName":
+							var emerFNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z]{1}[a-z]*|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var emerFNameResult = emerFNamePattern.exec(fieldValue);
+							if (emerFNameResult == null){
+								formAlert += "Emergency First Name Error, ";
+							}
+							break;
+						case "emerLName":
+							var emerLNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z]{1}[a-z]*|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var emerLNameResult = emerLNamePattern.exec(fieldValue);
+							if (emerLNameResult == null){
+								formAlert += "Emergency Last Name Error, ";
+							}
+							break;
+						case "AddressEmer1":
+							var emerAdd1Pattern = new RegExp ("(^[0-9]+[\+, \s]{1}[A-Z]{1}[a-z]*$|^[0-9]+[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$|^[0-9]+[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var emerAdd1Result = emerAdd1Pattern.exec(fieldValue);
+							if (emerAdd1Result == null){
+								formAlert += "Emergency Address1 Error, ";
+							}
+							break;
+							
+						//address 2 is optional field
+						
+						case "cityEmer":
+							var emerCityPattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+							var emerCityResult = emerCityPattern.exec(fieldValue);
+							if (emerCityResult == null){
+								formAlert += "Emergency City Error, ";
+							}
+							break;
+						case "stateEmer":
+							var emerStatePattern = new RegExp ("^[A-Z]{2}$");
+							var emerStateResult = emerStatePattern.exec(fieldValue);
+							if (emerStateResult == null){
+								formAlert += "Emergency State Error, ";
+							}
+							break;
+						case "zipcodeEmer":
+							var emerZipPattern = new RegExp ("^[0-9]{5}$");
+							var emerZipResult = emerZipPattern.exec(fieldValue);
+							if (emerZipResult == null){
+								formAlert += "Emergency Zipcode Error, ";
+							}
+							break;
+						case "phoneEmer":
+							var emerPhonePattern = new RegExp ("(^[0-9]{3}[\-]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[\(]{1}[0-9]{3}[\)]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[\(]{1}[0-9]{3}[\)]{1}[\+, \s]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[0-9]{10}$|^[0-9]{3}[\+, \s]{1}[0-9]{3}[\-]{1}[0-9]{4}$|^[0-9]{3}[\+, \s]{1}[0-9]{3}[\+, \s]{1}[0-9]{4}$)");
+							var emerPhoneResult = emerPhonePattern.exec(fieldValue);
+							if (emerPhoneResult == null){
+								formAlert += "Emergency Phone Error";
+							}
+							break;
+						default:
+						//default is empty because must match a case
+					}
+				}
+				//try to later create different size form alerts
+				if (formAlert != ""){
+					alert(formAlert);
+					return false;
+				}else {
+					return true;
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<!-- Logo and surrounding logo container -->
+		<div id = "content_area">
+			<div id = "logo_container">
+				<center><img src="Isshinryu_logo.jpg"></center>
+			</div>
+			
+		
+			<!-- navigation links to pages here -->
+			<div class="directory_container">
+				<center>
+					<nav>
+						<a href="Isshinryu_Home.html">Home</a>
+						<a href="Isshinryu_Our_Dojo.html">Our Dojo</a>
+						<a href="Isshinryu_Classes_and_Rates.html"><span class="on_page">Classes and Rates</span></a>
+						<a href="Isshinryu_Terminology.html">Terminology</a>
+						<a href="Isshinryu_Contact_Us.html">Contact Us</a>
+					</nav>
+				</center>	
+			</div>
+			
+		
+			
+			<!-- End of logo and navigation, begin content -->
+			
+			<center><h1>Class Schedule and Rates</h1>
+			<div class = "small_box_container">
+				<!-- box for rates and enrollment benefts -->
+				<div class = "small_box">
+					<h2>Isshinryu Enrollment Rates</h2>
+				
+					<p>$99 a month<br>
+					Included in your enrollment:</p>
+					<ul>
+						<li>Free uniform</li>
+						<li>Free trial class</li>
+						<li>No contract</li>
+					</ul>
+					<p>Newly enrolled students start weekly.</p>
+				</div>
+				<!-- box for class times -->
+				<div class = "small_box">
+					<h2>Class</h2>
+					<h3>Children 4 years and older</h3>
+					<p>Choice between a 1 hour class or 2 hour class.<br>
+					No additional cost to attend 2 hour class</p>
+					<p>Class days:<br>
+					Tuesday's and Thursday's
+					</p>
+					<p>Class times:<br>
+					For 1 hour: 5PM - 6PM<br>
+					For 2 hour: 5PM - 7PM</p>
+				
+					<h3>Adults (18 and older)</h3>
+				
+					<p>Class days:<br>
+					Tuesday's and Thursday's
+					</p>
+					<p>Class times:<br>
+					For 1 hour: 7PM - 8PM<br>
+					</p>
+				</div>
+				<!-- box for specials and details -->
+				<div class = "small_box">
+					<h2>Promotions and Specials</h2>
+					<h3>Family Special</h3>
+					<p>Special family rates! Contact us for more details.</p>
+					<h3>For Our Veterans</h3>
+					<p>Veterans will receive 3 months free!</p>
+				</div>
+			</div>
+			</center>
+			
+			<center><h1>Sign Up For Our Class!</h1></center>
+			
+			<!-- categories required to gather information are:
+				first name, last name, age, address, phone, belt level, emergency contact, if under 18 parent info
+			-->
+			
+			<form action="Isshinryu_Classes_Submit.html" method="GET" name="classSignUpForm" onsubmit="return signUpFormValidator()">
+				<fieldset>
+					<legend align="center">Student Info</legend>
+					
+					<label for="firtName">First Name:</label>
+					<input type="text" name="firstName" id="firstName">
+					<label for="lastName">Last Name:</label>
+					<input type="text" name="lastName" id="lastName"><br/>
+					<label for="belt">Belt Level:</label>
+					<input type="text" name="belt" id="belt">
+					<label for="age">Age:</label>						
+					<input type="text" name="age" id="age"><br/>
+					<p>If <span id="underAge">under 18</span> please fill out Parent/Guardian information.</p>
+					<label for="Address1">Address 1:</label>
+					<input type="text" name="Address1" id="Address1"><br/>
+					<label for="Address2">Address 2:</label>
+					<input type="text" name="Address2" id="Address2"><br/>
+					<label for="city"">City:</label>
+					<input type="text" name="city" id="city">
+					<label for="state">State:</label>
+					<select name="state" id="state">
+						<option>State</option>
+						<option value="AL">AL</option>
+						<option value="AK">AK</option>
+						<option value="AZ">AZ</option>
+						<option value="AR">AR</option>
+						<option value="CA">CA</option>
+						<option value="CO">CO</option>
+						<option value="CT">CT</option>
+						<option value="DE">DE</option>
+						<option value="FL">FL</option>
+						<option value="GA">GA</option>
+						<option value="HI">HI</option>
+						<option value="ID">ID</option>
+						<option value="IL">IL</option>
+						<option value="IN">IN</option>
+						<option value="IA">IA</option>
+						<option value="KS">KS</option>
+						<option value="KY">KY</option>
+						<option value="LA">LA</option>
+						<option value="ME">ME</option>
+						<option value="MD">MD</option>
+						<option value="MA">MA</option>
+						<option value="MI">MI</option>
+						<option value="MN">MN</option>
+						<option value="MS">MS</option>
+						<option value="MO">MO</option>
+						<option value="MT">MT</option>
+						<option value="NE">NE</option>
+						<option value="NV">NV</option>
+						<option value="NH">NH</option>
+						<option value="NJ">NJ</option>
+						<option value="NM">NM</option>
+						<option value="NY">NY</option>
+						<option value="NC">NC</option>
+						<option value="ND">ND</option>
+						<option value="OH">OH</option>
+						<option value="OK">OK</option>
+						<option value="OH">OH</option>
+						<option value="PA">PA</option>
+						<option value="RI">RI</option>
+						<option value="SC">SC</option>
+						<option value="SD">SD</option>
+						<option value="TN">TN</option>
+						<option value="TX">TX</option>
+						<option value="UT">UT</option>
+						<option value="VT">VT</option>
+						<option value="VA">VA</option>
+						<option value="WA">WA</option>
+						<option value="WV">WV</option>
+						<option value="WI">WI</option>
+						<option value="WY">WY</option>
+					</select><br/>
+					<label for="zipcode">Zipcode:</label>
+					<input type="text" name="zipcode" id="zipcode">
+					<label for="phone">Phone:</label>
+					<input type="text" name="phone" id="phone">
+				</fieldset>
+				<fieldset>
+					<legend align="center">Parent/Guardian Information</legend>
+					<label for="guardFName">First Name:</label>
+					<input type="text" name="guardFName" id="guardFName">
+					<label for="guardLName">Last Name:</label>
+					<input type="text" name="guardLName" id="guardLName"><br/>
+					<label for="AddressG1">Address 1:</label>
+					<input type="text" name="AddressG1" id="AddressG1"><br/>
+					<label for="AddressG2">Address 2:</label>
+					<input type="text" name="AddressG2" id="AddressG2"><br/>
+					<label for="cityGuard"">City:</label>
+					<input type="text" name="cityGuard" id="cityGuard">
+					<label for="stateGuard">State:</label>
+					<select name="stateGuard" id="stateGuard">
+						<option>State</option>
+						<option value="AL">AL</option>
+						<option value="AK">AK</option>
+						<option value="AZ">AZ</option>
+						<option value="AR">AR</option>
+						<option value="CA">CA</option>
+						<option value="CO">CO</option>
+						<option value="CT">CT</option>
+						<option value="DE">DE</option>
+						<option value="FL">FL</option>
+						<option value="GA">GA</option>
+						<option value="HI">HI</option>
+						<option value="ID">ID</option>
+						<option value="IL">IL</option>
+						<option value="IN">IN</option>
+						<option value="IA">IA</option>
+						<option value="KS">KS</option>
+						<option value="KY">KY</option>
+						<option value="LA">LA</option>
+						<option value="ME">ME</option>
+						<option value="MD">MD</option>
+						<option value="MA">MA</option>
+						<option value="MI">MI</option>
+						<option value="MN">MN</option>
+						<option value="MS">MS</option>
+						<option value="MO">MO</option>
+						<option value="MT">MT</option>
+						<option value="NE">NE</option>
+						<option value="NV">NV</option>
+						<option value="NH">NH</option>
+						<option value="NJ">NJ</option>
+						<option value="NM">NM</option>
+						<option value="NY">NY</option>
+						<option value="NC">NC</option>
+						<option value="ND">ND</option>
+						<option value="OH">OH</option>
+						<option value="OK">OK</option>
+						<option value="OH">OH</option>
+						<option value="PA">PA</option>
+						<option value="RI">RI</option>
+						<option value="SC">SC</option>
+						<option value="SD">SD</option>
+						<option value="TN">TN</option>
+						<option value="TX">TX</option>
+						<option value="UT">UT</option>
+						<option value="VT">VT</option>
+						<option value="VA">VA</option>
+						<option value="WA">WA</option>
+						<option value="WV">WV</option>
+						<option value="WI">WI</option>
+						<option value="WY">WY</option>
+					</select><br/>
+					<label for="zipcodeGuard">Zipcode:</label>
+					<input type="text" name="zipcodeGuard" id="zipcodeGuard">
+					<label for="phoneGuard">Phone:</label>
+					<input type="text" name="phoneGuard" id="phoneGuard">
+				</fieldset>
+				
+				<fieldset>
+					<legend align="center">Emergency Contact</legend>
+					<label for="emerFName">First Name:</label>
+					<input type="text" name="emerFName" id="emerFName">
+					<label for="emerLName">Last Name:</label>
+					<input type="text" name="emerLName" id="emerLName"><br/>
+					<label for="AddressEmer1">Address 1:</label>
+					<input type="text" name="AddressEmer1" id="AddressEmer1"><br/>
+					<label for="AddressEmer2">Address 2:</label>
+					<input type="text" name="AddressEmer2" id="AddressEmer2"><br/>
+					<label for="cityEmer"">City:</label>
+					<input type="text" name="cityEmer" id="cityEmer">
+					<label for="stateEmer">State:</label>
+					<select name="stateEmer" id="stateEmer">
+						<option>State</option>
+						<option value="AL">AL</option>
+						<option value="AK">AK</option>
+						<option value="AZ">AZ</option>
+						<option value="AR">AR</option>
+						<option value="CA">CA</option>
+						<option value="CO">CO</option>
+						<option value="CT">CT</option>
+						<option value="DE">DE</option>
+						<option value="FL">FL</option>
+						<option value="GA">GA</option>
+						<option value="HI">HI</option>
+						<option value="ID">ID</option>
+						<option value="IL">IL</option>
+						<option value="IN">IN</option>
+						<option value="IA">IA</option>
+						<option value="KS">KS</option>
+						<option value="KY">KY</option>
+						<option value="LA">LA</option>
+						<option value="ME">ME</option>
+						<option value="MD">MD</option>
+						<option value="MA">MA</option>
+						<option value="MI">MI</option>
+						<option value="MN">MN</option>
+						<option value="MS">MS</option>
+						<option value="MO">MO</option>
+						<option value="MT">MT</option>
+						<option value="NE">NE</option>
+						<option value="NV">NV</option>
+						<option value="NH">NH</option>
+						<option value="NJ">NJ</option>
+						<option value="NM">NM</option>
+						<option value="NY">NY</option>
+						<option value="NC">NC</option>
+						<option value="ND">ND</option>
+						<option value="OH">OH</option>
+						<option value="OK">OK</option>
+						<option value="OH">OH</option>
+						<option value="PA">PA</option>
+						<option value="RI">RI</option>
+						<option value="SC">SC</option>
+						<option value="SD">SD</option>
+						<option value="TN">TN</option>
+						<option value="TX">TX</option>
+						<option value="UT">UT</option>
+						<option value="VT">VT</option>
+						<option value="VA">VA</option>
+						<option value="WA">WA</option>
+						<option value="WV">WV</option>
+						<option value="WI">WI</option>
+						<option value="WY">WY</option>
+					</select><br/>
+					<label for="zipcodeEmer">Zipcode:</label>
+					<input type="text" name="zipcodeEmer" id="zipcodeEmer">
+					<label for="phoneEmer">Phone:</label>
+					<input type="text" name="phoneEmer" id="phoneEmer"><br/><br/>
+					<center><input type="submit" value="Sign Up!"></center>
+				</fieldset>
+			</form>
+			
+			
+			
+		<div class ="footer">	
+			<br>
+			<hr>
+			<footer>
+				<p>Trademark / Copyright information here / Date last modified</p>
+			</footer>
+		</div>
+	</div>	
+	</body>
+</html>

@@ -1,0 +1,129 @@
+/**
+CODE BY
+			Amy Le
+			CIS 14 A
+			Project 1
+			Isshinryu Website 
+**/		
+
+/** Credit for patterns/themes/texture belongs to
+	Tweed by Simon Leo
+	Brick Wall by Benjamin Ward
+	from subtlepatterns.com
+**/
+
+/** Second Style Sheet, include specific page styling for individual pages **/
+
+/** Home Styling **/
+
+.entry{
+	border-bottom:1px solid black;
+}
+.entry p::first-line{
+	color:#B50418;
+	font-style: italic;
+	text-transform:uppercase;
+} 
+ 
+/** Contact Us Styling **/
+
+.address {
+	font-size: 18px;
+	text-align: center;
+
+}
+
+form {
+	width: 700px;
+	margin:auto;
+}
+
+
+
+
+
+/** Class/Rates Styling **/
+
+.small_box_container {
+	width: 100%;
+	height: 500px;
+	min-width:1100px;
+	
+	
+}
+
+.small_box {
+	width: 	27%;
+	margin: 5px 10px 5px 10px;
+	height: 455px;
+	border: 1px solid black;
+	display: inline-block;
+	padding: 10px;
+	overflow: scroll;
+	-webkit-box-shadow: 7px 7px 5px rgba(53, 50, 50, 0.59);
+	-moz-box-shadow: 7px 7px 5px rgba(53, 50, 50, 0.59);
+	box-shadow: 7px 7px 5px rgba(53, 50, 50, 0.59);
+}
+
+
+#underAge{
+	text-decoration: underline;
+	color: #E30E22;
+}
+
+
+/** Our Dojo Styling **/
+
+.person_img {
+	height:150px;
+	width:125px;
+	border-radius:25px;
+}
+
+#Sandubrae_img {
+	float: left;
+	margin: 5px 20px 10px 5px;
+}
+
+.no_img {
+	background-color: #bec4cb;
+	display: inline-block;
+}
+
+
+
+.img_row {
+	display:inline-block;
+	margin: 20px 4%;
+	text-align:center;
+}
+
+.img_row p{
+	color:#3C4554;
+}
+.box img{
+	border: 3px double black;
+}
+
+.bio p{
+	text-indent: 40px;
+}
+
+.bio ul li{
+	font-size:14px;
+}
+
+
+
+
+
+/** Terminology Styling **/
+
+.word {
+	text-decoration:underline;
+	font-weight: bold;
+	}
+
+.disclaimer {
+	padding: 0 10px 0 10px;
+}
