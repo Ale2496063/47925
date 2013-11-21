@@ -1,0 +1,75 @@
+/*
+	background credit:
+	Atle Mo - Retina Wood http://subtlepatterns.com/retina-wood/
+*/
+
+body {
+	margin: 0 10% 0 10%;
+	background: url(images/retina_wood.png) ;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 20px auto 0 auto;
+	
+}
+
+.imgPlaceholder {
+	height: 225px;
+	width: 198px;
+	border: 2px double black;
+}
+
+#aboutMeBox, .rightBox, .quoteBox {
+	width: 200px;
+	height: 100%;
+	float: right;
+	background-color: grey;
+}
+
+#aboutMeBox {
+	margin: 5px 0 30px 10px;
+	padding: 10px 15px 25px 30px;
+	height: 715px;
+	-moz-border-radius-topright: 80px;
+	-webkit-border-top-right-radius: 80px;
+	border-top-right-radius: 80px;
+	-moz-border-radius-bottomleft: 90px;
+	-webkit-border-bottom-left-radius: 90px;
+	border-bottom-left-radius: 90px;
+	-webkit-box-shadow: 37px 37px 30px rgba(50, 50, 50, 0.59);
+	-moz-box-shadow:  37px 37px 30px rgba(50, 50, 50, 0.59);
+	box-shadow: 37px 37px 30px rgba(50, 50, 50, 0.59);
+	background-color: #F0A292;
+}
+
+#largeImg {
+	width:425px;
+	height:450px;
+	-webkit-border-radius: 90px;
+	-moz-border-radius: 90px;
+	border-radius: 90px;
+	margin-left: 150px;
+}
+
+h1:first-of-type {
+	margin-left: 220px;
+}
+
+
+
+.aboutMeBox, .quoteBox {
+	width: 230px;
+	padding: 10px;
+}
+
+.smallBox {
+	width: 150px;
+	height:;
+	float: left;
+	display: block;
+}
+
+#centerColumn {
+	
+}
