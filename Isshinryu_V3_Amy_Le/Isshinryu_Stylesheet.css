@@ -138,6 +138,7 @@ footer {
 	-webkit-box-shadow: 16px 16px 18px rgba(50, 50, 50, 0.75);
 	-moz-box-shadow: 16px 16px 18px rgba(50, 50, 50, 0.75);
 	box-shadow: 16px 16px 18px rgba(50, 50, 50, 0.75);
+	background-color: rgba(123, 164, 186, 0.5);
 }
 
 .boxContainer {

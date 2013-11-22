@@ -63,6 +63,11 @@ form {
 	-webkit-box-shadow: 7px 7px 5px rgba(53, 50, 50, 0.59);
 	-moz-box-shadow: 7px 7px 5px rgba(53, 50, 50, 0.59);
 	box-shadow: 7px 7px 5px rgba(53, 50, 50, 0.59);
+	background-color: rgba(87, 150, 126, 0.6);
+}
+
+.small_box ul li {
+	list-style: none;
 }
 
 
