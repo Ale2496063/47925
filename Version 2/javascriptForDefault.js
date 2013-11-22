@@ -1,4 +1,9 @@
-
+/** 
+	Amy Le
+	CIS 14A
+	Personal Project
+**/
+ 
 //create a constructor to create object for each food item
 
 function FoodItem (type, name){
@@ -77,7 +82,7 @@ function filterDetermination () {
 	//check to see if decided to go without filter and run 
 	if (getFoodType() === "Select"){
 		var chosen = getRandomFood (foodList);
-		document.write("<p>The randomizer has spoken</p>" + "<p>" + chosen.foodName + "</p>");
+		document.write("<p>The randomizer has spoken, you will eat " + chosen.foodName + "</p>");
 	//otherwise use filtering scenario	
 	}else {
 		var filteredResult = runFilteredRandomizer();

@@ -1,4 +1,8 @@
 /*
+	Code By Amy Le
+	CIS 14A
+	Personal Project
+	
 	background credit:
 	Atle Mo - Retina Wood http://subtlepatterns.com/retina-wood/
 */
@@ -26,7 +30,7 @@ body {
 	width: 200px;
 	height: 100%;
 	float: right;
-	background-color: #E3C7AA;
+	background-color: rgba(125,168,149, 0.4);
 }
 
 #aboutMeBox {
@@ -70,7 +74,7 @@ img + h1 {
 }
 
 #buttonContainer {
-	margin-left: 290px;
+	margin-left: 230px;
 }
 
 .aboutMeBox, .quoteBox {
@@ -136,7 +140,11 @@ img + h1 {
 #centerColumn {
 	width:600px;
 	margin-left: 165px;
-	border: 1px solid black;
+	padding-top: 100px;
+}
+
+#centerColumn input[type=submit]{
+	margin-top: 25px;
 }
 
 /********************** Styling For Custom Randomizer ***************************/
@@ -146,9 +154,21 @@ img + h1 {
 	line-height: 30px;
 }
 .quoteName {
-	color: #BF6B11;
+	color: #375245;
 }
 #customFormContainer {
-	width: 700px;
+	padding-top: 100px;
+	width: 500px;
+	margin-left: 180px;
+	padding-left: 25px;
+	padding-bottom: 30px;
+}
+
+/********************** Styling For Result Pages ***************************/
+
+.result {
+	background-color: rgba(104,166,186, 0.5);
+	width: 600px;
+	margin-top: 150px;
 	border: 1px solid black;
 }

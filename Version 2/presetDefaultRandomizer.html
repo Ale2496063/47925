@@ -25,9 +25,7 @@
 				<div class="imgPlaceholder">
 					<img src="images/IMG_7354.jpg" height="225px" width="198px">
 				</div>
-				<div class="imgPlaceholder">
-					<img src="images/IMG_5928.jpg" height="225px" width="198px">
-				</div>
+				
 			
 			</div>
 			<div class="smallBox">
@@ -36,10 +34,12 @@
 				<p>Ok, so I lied a little! You still get to be involed in your food destiny to an extent!</p>
 				<p>This list is not extensive! Forgive me for not including all styles of food!</p>
 				<h2>Directions:</h2>
-				<p>More decisions! To filter or not to filter? If you don't want to filter the outcome just skip on down to the randomize button!</p>
+				<p>More decisions! To filter or not to filter? If you don't want to filter the outcome just skip on down to the "Let's do this!" button!</p>
 			</div>
 			<div id="centerColumn">
-				<h1>Food Or Drink Roulette!</h1>
+				<center>
+				<h1>Food Roulette!</h1>
+				<h2>Please choose a style of cuisine.</h2>
 				<form name="filter" method="GET" action="resultsPagePreset.html">
 					<!--Use arrays for options -->
 					<select name="cultureType" id="cultureType">
@@ -62,9 +62,10 @@
 							    document.write("<option>" + ethnicCuisine[i] + "</option>");
 							}
 						</script>
-					</select>
+					</select><br>
 					<input type="submit" value="Let's do this!">
 				</form>
+				</center>
 			</div>
 		</div>
 	</body>

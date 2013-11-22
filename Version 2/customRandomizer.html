@@ -12,16 +12,70 @@
 		-->
 		<title>Amy Le's Personal Project</title>
 		<link type="text/css" rel="stylesheet" href="styles.css">
+		<script>
+			//since this is a user inputted randomizer, will need validator
+			//validator will require user to input at least two items
+			//will assume that user will input entries in order
+			
+			function entryFormValidator(){
+				//to check each field, going to access value in loop
+				
+				//array list of our fields
+				var formFieldList = ["entry1", "entry2", "entry3"];
+				for (var i = 0; i < formFieldList.length; i ++){
+					var fieldName = formFieldList[i];
+					var fieldValue = document.customInputs[fieldName].value;
+					
+					switch(fieldName){
+						case "entry1":
+							var entry1Pat = new RegExp ("^(?!Choice [1]{1})[A-Z, a-z, /', /!, 0-9]+");
+							//the regular expression will not match Choice 1
+							var entry1Comp = entry1Pat.exec(fieldValue);
+							if (entry1Comp == null){
+								alert("Please enter a valid value in Entry 1");
+								return false;
+							}
+							break;
+						case "entry2":
+							var entry2Pat = new RegExp ("^(?!Choice [2]{1})[A-Z, a-z, /', /!, 0-9]+");
+							//regular expressions will not match Choice 2
+							var entry2Comp = entry2Pat.exec(fieldValue);
+							if (entry2Comp == null){
+								alert("Please enter a valid value in Entry 2");
+								return false;
+							}
+							break;
+						case "entry3":
+							//entry3 can be empty, which means its value is allowed to be Choice 3
+							//make sure that when do randomizer, if the value is Choice 3 to exclude it from randomization
+							//if being utilized, have regex available for comparison
+							var entry3Pat = new RegExp ("[A-Z, a-z, /', ,/!, 0-9]+")
+							if (entry3Pat == null){
+								alert("Please enter a valid value in Entry 3");
+								return false;
+							}
+							break;
+						default: //nothing required here
+					}
+				}
+				return true;
+			}
+		</script>
 	</head>
+	
+	
 	<body>
 		<div class="wrapper">
-			<a href="index.html"><input type="button" value="Back to Home"></a>
-			<div id="customFormContainer">
-				<h1>Custom Food Or Drink Roulette</h1>
-				<form name="customInputs" method="GET" action="resultsPageCustom.html">
-			 		<input type="text" name="name" value="Name of food/drink">
-			 		<input type="submit">
-				</form>
+			<div class="smallBox">
+				<a href="index.html"><input type="button" value="Back to Home"></a>
+				<h2>Directions:</h2>
+				<p>If you have 2-3 choices that you need to decide between, this is your randomizer!</p>
+				<ol>
+					<li>Consider your choices</li>
+					<li>Enter 2-3 choices into the form</li>
+					<li>Hit randomize!</li>
+					<li>The randomizer will decide for you!</li>
+				</ol>
 			</div>
 			<div class="quoteBox">
 				<div class="wittyQuote">
@@ -43,6 +97,19 @@
 
 					</p>
 				</div>
+			</div>
+			
+			<div id="customFormContainer">
+				<center>
+					<h1>Custom Food/Restaurant Roulette</h1>
+					<h2>Please enter 2-3 values</h2>
+					<form name="customInputs" method="GET" action="resultsPageCustom.html" onsubmit="return entryFormValidator()">
+			 			<input type="text" name="entry1" value="Choice 1"><br>
+			 			<input type="text" name="entry2" value="Choice 2"><br>
+			 			<input type="text" name="entry3" value="Choice 3"><br>
+			 			<input type="submit">
+					</form>
+				</center>
 			</div>
 		</div>
 	</body>
