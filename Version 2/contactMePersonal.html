@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Amy Le
+			CIS 14 A
+			Personal Project
+			CONTACT PAGE
+		-->
+		<title>Amy Le's Personal Project</title>
+		<link type="text/css" rel="stylesheet" href="styles.css">
+		<script>
+			//JavaScript code to validate contact form
+			//have an alert message that states the form is not properly filled out
+			
+			function contactValidation (){
+				//create list of field names that can plug in for use in loop
+				var formFields = ["message", "firstName", "lastName", "visitorEmail"];
+				//create loop to go through each array value and plug into a switch statement to compare to its regex
+				for (var i = 0; i < formFields.length; i ++){
+					//get field name from array
+					fieldName = formFields[i];
+					// plug in array name to get value at that field
+					fieldValue = document.contactMe[fieldName].value;
+					//now enter fieldName into a switch and compare value to its regex
+					//when use .exec() for comparison, will return null if not a match
+					switch (fieldName) {
+						case "message":
+							var msgPattern = new RegExp ("[A-Z, a-z, 0-9, \w,\!,\#,\$,\%,\&,\',\*,\+,\-,\/,\=,\?,\^,\_,\`,\{,\|,\},\~]+");
+							var msgCompare = msgPattern.exec(fieldValue);
+							if (msgCompare == null){
+								alert("Please enter a valid message.");
+								return false;
+							}
+							break;
+						case "firstName":
+							var fNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z][a-z]*|^[A-Z]{1}[a-z]{1}\s{1}[A-Z][a-z]*)");
+							var fNameCompare = fNamePattern.exec(fieldValue);
+							if (fNameCompare == null){
+								alert("Please enter a valid First Name");
+								return false;
+							}
+							break;
+						case "lastName":
+							var lNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z][a-z]*|^[A-Z]{1}[a-z]{1}\s{1}[A-Z][a-z]*)");
+							var lNameCompare = lNamePattern.exec(fieldValue);
+							if (lNameCompare == null){
+								alert("Please enter a valid Last Name");
+								return false;
+							}
+							break;
+						case "visitorEmail":
+							var emailPattern = new RegExp ("[A-Z, a-z, 0-9, \w,\!,\#,\$,\%,\&,\',\*,\+,\-,\/,\=,\?,\^,\_,\`,\{,\|,\},\~]+\@{1}[A-Z, a-z]+\.[A-Z, a-z]+");
+							var emailCompare = emailPattern.exec(fieldValue);
+							if (emailCompare == null){
+								alert("Please enter a valid Email");
+								return false;
+							}
+							break;
+						default: //is left empty because no exceptions
+					}
+				}
+				return true;
+			}
+			console.log("hello");
+		</script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<a href="index.html"><input type="button" value="Back"></a>
+			<div id="contactFormContainer">
+				<!-- Have some type of banner img here -->
+				<div id="banner"><h1>Send A Message!</h1></div>
+				<!-- Contac Us Form, include JavaScript through form validation & Storage -->
+				<div id="formSmallBox">
+					<form action="contactMeSubmit.html" method="GET" name="contactMe" onsubmit="return contactValidation()">
+						<label for="message">Your Message:</label><br>
+						<textarea name="message" id="message"></textarea><br>
+						<label for="firstName">First Name:</label><br>
+						<input type="text" name="firstName"><br>
+						<label for="lastName">Last Name:</label><br>
+						<input type="text" name="lastName"><br>
+						<input type="text" name="visitorEmail" value="Email Address"><br>
+						<input type="submit" value="Get In Touch!">
+					</form>
+				</div>
+			<div>
+		</div>
+	</body>
+</html>

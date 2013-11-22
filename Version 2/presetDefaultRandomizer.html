@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Amy Le
+			CIS 14 A
+			Personal Project
+			DEFAULT RANDOMIZER
+		-->
+		
+		<!--
+			ALL food images were taken by and are the property of Amy Le
+		-->
+		<title>Amy Le's Personal Project</title>
+		<link type="text/css" rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="rightBox">
+				<div class="imgPlaceholder">
+					<img src="images/img_1424.jpg" height="225px" width="198px">
+				</div>
+				<div class="imgPlaceholder">
+					<img src="images/IMG_1427.jpg" height="225px" width="198px">
+				</div>
+				<div class="imgPlaceholder">
+					<img src="images/IMG_7354.jpg" height="225px" width="198px">
+				</div>
+				<div class="imgPlaceholder">
+					<img src="images/IMG_5928.jpg" height="225px" width="198px">
+				</div>
+			
+			</div>
+			<div class="smallBox">
+				<a href="index.html"><input type="button" value="Back to Home"></a>
+				<h2>A message for you:</h2>
+				<p>Ok, so I lied a little! You still get to be involed in your food destiny to an extent!</p>
+				<p>This list is not extensive! Forgive me for not including all styles of food!</p>
+				<h2>Directions:</h2>
+				<p>More decisions! To filter or not to filter? If you don't want to filter the outcome just skip on down to the randomize button!</p>
+			</div>
+			<div id="centerColumn">
+				<h1>Food Or Drink Roulette!</h1>
+				<form name="filter" method="GET" action="resultsPagePreset.html">
+					<!--Use arrays for options -->
+					<select name="cultureType" id="cultureType">
+						<script>
+							//create an array with ethnic cuisines
+							var ethnicCuisine = [
+							    "Select",
+							    "Chinese",
+							    "Korean",
+							    "Japanese",
+							    "Vietnamese",
+							    "Indian",
+							    "Middle Eastern",
+							    "Greek",
+							    "Italian",
+							    "Mexican"
+							];
+							 // loop through array to display in drop down list for filter
+							for (var i = 0; i < ethnicCuisine.length; i++) {
+							    document.write("<option>" + ethnicCuisine[i] + "</option>");
+							}
+						</script>
+					</select>
+					<input type="submit" value="Let's do this!">
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

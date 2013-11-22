@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- NOTE!!!!!
+			need to fix cookie, will not update/append cookie if new information added
+		-->	
+		
+		
+		
+		<!-- Amy Le
+			CIS 14 A
+			Personal Project
+			CONTACT PAGE
+		-->
+		<title>Amy Le's Personal Project</title>
+		<link type="text/css" rel="stylesheet" href="styles.css">
+		<script>
+			//need to incorporate some type of storage system for the form data
+			//will use cookies to store
+			//create function to access any/all cookies and store into an object
+			//when cookies are created they are all in one single string separated by "; "
+			function accessFormCookies(){
+				//create an object that will be used for cookies
+				var cookies = {};
+				//pull in all cookies if any
+				var allMyCookies = document.cookie;
+				//if no cookies, just return an empty object
+				if (allMyCookies === ""){
+					return cookies;
+				}
+				//now if cookie is actually present, allMyCookies will contain a string of all the cookie values, want to separate them
+				//will currently be allMyCookies = "name=value; name=value; name=value"
+				//for first separation, split at ;
+				var nameValueChunk = allMyCookies.split("; ");
+				//returns array [name=value, name=value, etc]
+				//loop through each array to further separate name and value
+				//when reference each array value, will get characters before and after = for name and value, assign to variables, put into our object
+				for (var i = 0; i < nameValueChunk.length; i++){
+					var separatedNameVal = nameValueChunk[i];
+					var separator = separatedNameVal.indexOf("="); //separator is the number position of the =
+					//since won't know exact length of name or value, will use substring method that uses separator as a cut off
+					var name = separatedNameVal.substring(0, separator);
+					var value =  separatedNameVal.substring(separator + 1);
+					value = decodeURIComponent(value);
+					cookies[name] = value;
+				}
+				return cookies;
+			}
+			
+			//if no cookies will need a way to create them
+			//function to set cookies
+			function setPageCookies (name, value, longevity){
+				//create basic cookie using layout then set with document.cookie
+				var cookie = name + "=" + encodeURIComponent(value);
+				//have way to check that longevity is a number
+				if (typeof longevity === "number"){
+					cookie += "; max-age=" + (longevity);
+				}
+				//create the cookie
+				document.cookie = cookie;
+			}
+			
+			//now need function to indicated whether object is empty or not
+			function objectChecker (myObj){
+				//check to see if there are any properties and values
+				for (var name in myObj){
+					if (myObj.hasOwnProperty(name)){ //asking is there this property?
+						return false; //if that is true then our object is NOT empty and must return false
+					}
+				}
+				//if skip over to here then object must be empty
+				return true;
+			}
+		</script>
+		<script src="getFormDataFunctions.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="contactFormSubmitContainer">
+				<!-- Have some type of banner img here -->
+				<div id="bannerSent"><h1>Your Message Was Sent!</h1></div>
+				<!-- Contac Us Form, include JavaScript through form validation & Storage -->
+				<div id="resultSmallBox">
+					<center>
+						<p>Thanks for contacting me!</p>
+						<p>I'll get back to you as soon as I finish this pretzel.</p>
+						<a href="index.html"><input type="button" value="Go Back To Home"></a>
+						<p>Note:<br> Form data and cookies outputted in the console</p>
+					</center>
+					<script>
+						//run the functions to get the form data and to display the form
+						var myContactFormObj = accessFormData();
+						displayFormData(myContactFormObj);
+						
+						//run the functions to get cookies, check, and create
+						var time = 60;
+						var cookieObj = accessFormCookies();
+						if (objectChecker(cookieObj)){
+							for (var name in myContactFormObj){
+								var value = myContactFormObj[name];
+								setPageCookies(name, value, time);
+							}
+						//if our object is not empty will need way to append new name/value pairs into our cookies
+						//use setPageCookies again to create/add these new cookies!	
+						}else for(var name in myContactFormObj){
+							var value = myContactFormObj[name];
+							setPageCookies(name,value,time);
+						}
+						
+						console.log("The cookies:" + document.cookie);
+					</script>
+				</div>
+			<div>
+		</div>
+	</body>
+</html>

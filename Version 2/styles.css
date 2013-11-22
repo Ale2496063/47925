@@ -1,0 +1,154 @@
+/*
+	background credit:
+	Atle Mo - Retina Wood http://subtlepatterns.com/retina-wood/
+*/
+
+/********************** General Styling For All Pages and Index Specific Styling  ***************************/
+
+body {
+	margin: 0 10% 0 10%;
+	background: url(images/retina_wood.png) ;
+}
+
+.wrapper {
+	width: 1000px;
+	margin: 20px auto 0 auto;
+	
+}
+
+.imgPlaceholder {
+	height: 225px;
+	width: 198px;
+	border: 2px double black;
+}
+
+#aboutMeBox, .rightBox, .quoteBox {
+	width: 200px;
+	height: 100%;
+	float: right;
+	background-color: #E3C7AA;
+}
+
+#aboutMeBox {
+	margin: 5px 0 30px 30px;
+	padding: 10px 15px 25px 30px;
+	height: 715px;
+	-moz-border-radius-topright: 80px;
+	-webkit-border-top-right-radius: 80px;
+	border-top-right-radius: 80px;
+	-moz-border-radius-bottomleft: 90px;
+	-webkit-border-bottom-left-radius: 90px;
+	border-bottom-left-radius: 90px;
+	-webkit-box-shadow: 37px 37px 30px rgba(50, 50, 50, 0.59);
+	-moz-box-shadow:  37px 37px 30px rgba(50, 50, 50, 0.59);
+	box-shadow: 37px 37px 30px rgba(50, 50, 50, 0.59);
+	background-color: #F0A292;
+}
+
+#aboutMeBox p:nth-child(odd){
+	text-indent: 25px;
+	line-height: 20px;
+}
+
+#aboutMeBox p:last-child{
+	text-indent: 0;
+	text-align:center;
+}
+
+#largeImg {
+	width:425px;
+	height:450px;
+	-webkit-border-radius: 90px;
+	-moz-border-radius: 90px;
+	border-radius: 90px;
+	margin-left: 150px;
+	border: black solid;
+}
+
+img + h1 {
+	margin-left: 220px;
+}
+
+#buttonContainer {
+	margin-left: 290px;
+}
+
+.aboutMeBox, .quoteBox {
+	width: 230px;
+	padding: 10px;
+}
+/********************** Styling For Contact Me ***************************/
+
+#banner, #bannerSent {
+	background-color:#2F8EBD;
+	color: #F5F8FA;
+	height: 70px;
+	width: 500px;
+	padding: 15px;
+	-moz-border-radius-topleft: 90px;
+	-webkit-border-top-left-radius: 90px;
+	 border-top-left-radius: 90px;
+	-moz-border-radius-topright: 90px;
+	-webkit-border-top-right-radius: 90px;
+	border-top-right-radius: 90px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+#banner h1 {
+	margin-left: 130px;	
+}
+#bannerSent h1 {
+	margin-left: 80px;
+}
+#contactFormContainer, #contactFormSubmitContainer {
+	margin-left: 200px;
+	margin-top: 100px;
+	width: 530px;
+}
+#contactFormSubmitContainer {
+	margin-top: 142px;
+}
+#formSmallBox, #resultSmallBox {
+	background-color: #79ADC9;
+	padding: 40px 0px;
+	padding-left: 160px
+}
+#resultSmallBox{
+	padding: 40px 0 40px 0;
+	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+	font-size: 140%;
+	color: white;
+}
+
+
+
+/********************** Styling For Preset Default Randomizer ***************************/
+.smallBox {
+	width: 150px;
+	float: left;
+	display: block;
+}
+
+#centerColumn {
+	width:600px;
+	margin-left: 165px;
+	border: 1px solid black;
+}
+
+/********************** Styling For Custom Randomizer ***************************/
+
+.wittyQuote {
+	margin-bottom: 40px;
+	line-height: 30px;
+}
+.quoteName {
+	color: #BF6B11;
+}
+#customFormContainer {
+	width: 700px;
+	border: 1px solid black;
+}
