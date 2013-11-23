@@ -49,7 +49,7 @@ function checkLastArrayValue (array){
 //need way to randomize and display, will be using same technique as in javascriptForDefault.js
 //reference the array value using a random number
 function getRandomFood (array){
-	var num = Math.floor(Math.random()*(array.length));
+	var num = Math.floor(Math.random()*(array.length-1));
 	var result = array[num];
 	return result;
 }
