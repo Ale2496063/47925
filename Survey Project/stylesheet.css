@@ -1,0 +1,45 @@
+/** 
+	Amy Le
+	CIS 14A
+	Survey Site
+**/
+
+.wrapper {
+/**fix margins once have more content **/
+	margin:10% 20% 0 20%;
+	min-width:1000px;
+}
+
+.sidebar {
+	width:225px;
+	float: left;
+}
+
+nav ul {
+	border:1px solid black;
+}
+
+nav ul li {
+	list-style: none;
+}
+
+.userMsg {
+	border:1px solid black;
+}
+
+#surveyList , form {
+	border:1px solid black;
+	width: 600px;
+	padding: 20px;
+	float:right;
+}
+
+button {
+	float: left;
+	margin-right: 15px;
+}
+
+.surveyDescription {
+	margin-left: 110px;
+	margin-top: 0;
+}
