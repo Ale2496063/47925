@@ -4,6 +4,17 @@
 	Survey Site
 **/
 
+/** background image credit 
+	black_thread by Listvetra from http://subtlepatterns.com/black-thread/
+
+
+**/
+
+body {
+	background-image: url('images/black_thread.png');
+	color: #C7B96D;
+}
+
 .wrapper {
 /**fix margins once have more content **/
 	margin:10% 20% 0 20%;
@@ -13,10 +24,13 @@
 .sidebar {
 	width:225px;
 	float: left;
+	background-color: rgba(109, 168, 199, .7);
+	color:black;
+	padding: 15px;
 }
 
-nav ul {
-	border:1px solid black;
+nav {
+	margin-left: 40px;	
 }
 
 nav ul li {
@@ -24,14 +38,23 @@ nav ul li {
 }
 
 .userMsg {
-	border:1px solid black;
+	margin-left: 8px;
 }
 
-#surveyList , form {
+.userMsg p:first-of-type{
+	text-indent: 70px;
+}
+
+.userMsg p:last-of-type{
+	text-indent: 30px;
+}
+
+#surveyList , form, #submittedMessage {
 	border:1px solid black;
 	width: 600px;
 	padding: 20px;
 	float:right;
+	background: rgba(171, 136, 99, .6);
 }
 
 button {

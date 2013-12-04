@@ -7,6 +7,7 @@
 
 function checkButtonsSurvey1(formName){
 	var formAccept = false;
+	var questionStatus = [];
 	//will check radio buttons first to see if selected
 	//array of radio names that will use in loop and check
 	var radioList = ["train", "wood", "rainbow", "burrito", "baconIsle", "cookie", "sleep"];
@@ -15,18 +16,21 @@ function checkButtonsSurvey1(formName){
 	for (var i = 0; i < radioList.length; i++){
 		var currentRadioArray = formName[radioList[i]];
 		//now have array of boolean values example[F,F,F,F], loop through each
-		for ( var i = 0; i < currentRadioArray.length; i ++){
+		for ( var k = 0; k < currentRadioArray.length; k ++){
 			//check for a true boolean to indicate that a selection has been made
-			//if true allow it to be accepted by setting formAccept to true and leaving the loop for that array set
-			if( currentRadioArray[i].checked){
-				formAccept = true;
+			//if any selection made per question, save the status if it's true
+			if( currentRadioArray[k].checked){
+				questionStatus.push(currentRadioArray[k].checked)
 				break;
 			}
 		}
-		//in order to send alert msg to user regarding radios, check value of formAccept
-		if (formAccept == false){
-			alert("Questions 1-7 are incomplete");	
-		}
+		
+	}
+	//since created array of true booleans related to radio questions, must have length of 7 to be valid
+	if ( questionStatus.length === 7){
+		formAccept = true;
+	} else {
+		alert("Questions 1-7 are incomplete");	
 	}
 	return formAccept;
 }
