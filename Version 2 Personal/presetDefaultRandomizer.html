@@ -65,9 +65,11 @@
 							    "Mexican"
 							];
 							 // loop through array to display in drop down list for filter
-							for (var i = 0; i < ethnicCuisine.length; i++) {
-							    document.write("<option>" + ethnicCuisine[i] + "</option>");
-							}
+							 var i = 0;
+							 do {
+								document.write("<option>" + ethnicCuisine[i] + "</option>");
+								i ++;
+							} while( i < ethnicCuisine.length);
 						</script>
 					</select><br>
 					<input type="submit" value="Let's do this!">
