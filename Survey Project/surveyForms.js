@@ -117,12 +117,14 @@ function getSubmittedForm(){
 	//split our paramList at "&" to get separate name value pair sets in array
 	var namValSets = paramList.split("&");
 	//now need to loop through this array and split into name and into value, assign to vars for use into putting in object
-	for (var i = 0; i < namValSets.length; i ++){
+	var i = 0
+	while ( i < namValSets.length){
 		var sepNameAndVal = namValSets[i].split("=");
 		//for each have array [name, value]
 		var prop = sepNameAndVal[0];
 		var val = sepNameAndVal[1];
 		submittedFormObj[prop] = val;
+		i ++;
 	}
 	return submittedFormObj;
 }
