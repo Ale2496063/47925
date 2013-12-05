@@ -29,7 +29,7 @@
 				</nav>
 			</div>
 		
-			<form name="survey1" method="GET" action="survey1Submit.html" onsubmit="return checkButtonsSurvey1(survey1)">
+			<form name="survey1" method="GET" action="survey1Submit.html" onsubmit="return validateSurvey1(survey1)">
 				<h2>Societal Survey</h2>
 				<p>1) If you were stuck on a train, what would you do?</p>
 				<input type="radio" name="train" value="jump" id="tjump"><label for="tjump">Jump out the window with dramatic last words.</label><br>
@@ -91,7 +91,7 @@
 				<p>9) Please enter whatever pops up in your head.</p>
 					<input type="text" name="random">
 				<p>10) Why are you taking this survey?</p>
-				<textarea></textarea><br>
+				<textarea name="why" id="why"></textarea><br>
 				<input type="submit" value="Beam Survey to Mothership">
 			</form>
 		</section>

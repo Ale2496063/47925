@@ -11,8 +11,13 @@
 		-->
 		<title>Amy Le's Survey Site</title>
 		<link rel="stylesheet" href="stylesheet.css">
+		<script src="surveyForms.js"></script>
 	</head>
 	<body>
+		<script>
+			//run our getSubmittedForm function to get data into an object for use in local storage and analysis
+			var $_GET = getSubmittedForm();
+		</script>
 		<section class="wrapper">
 			<div class="sidebar">
 				<div class="userMsg">
