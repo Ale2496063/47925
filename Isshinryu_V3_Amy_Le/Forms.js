@@ -23,12 +23,14 @@ function getSubmittedForm () {
 	//want to loop through each parameter set of the array created with split
 	// want to then separate the property from its value, creates a new array from that string
 	// store back into object
-	for (var i = 0; i < parameters.length; i ++){
+	var i = 0;
+	while ( i < parameters.length){
 		var map = parameters[i].split("=");
 		var property = map[0];
 		var value = map[1];
 		
 		formObj[property] = value;
+		i ++;
 	}
 	return formObj;
 }
