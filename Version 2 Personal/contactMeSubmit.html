@@ -85,7 +85,6 @@
 						<p>Thanks for contacting me!</p>
 						<p>I'll get back to you as soon as I finish this pretzel.</p>
 						<a href="index.html"><input type="button" value="Go Back To Home"></a>
-						<p>Note:<br> Form data and cookies outputted in the console</p>
 						<!-- NOTE NOTE sometimes chrome will no save cookies, use firefox -->
 					</center>
 					<script>
@@ -108,7 +107,7 @@
 							setPageCookies(name,value,time);
 						}
 						
-						console.log("The cookies:" + document.cookie);
+						document.write("<p>The cookies:" + document.cookie + "</p>");
 					</script>
 				</div>
 			<div>

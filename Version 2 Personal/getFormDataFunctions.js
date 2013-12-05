@@ -36,7 +36,7 @@ function displayFormData(ourFormObject){
 	//we want to display the name and value
 	//to do this need to loop through each property name in object
 	for (var propName in ourFormObject){
-		//document.write("<p>" + propName + ":" + ourFormObject[propName]+"</p>");
-		console.log(propName + " : " + ourFormObject[propName]);
+		document.write("<p>" + propName + ":" + ourFormObject[propName]+"</p>");
+		//console.log(propName + " : " + ourFormObject[propName]);
 	}
 }
