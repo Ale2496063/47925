@@ -20,13 +20,15 @@ function accessFormData (){
 	//an array is returned [name=value, name=value]
 	//want to get the names by themselves and values by themselves to add into object
 	//need to loop through each value in parameter array and split accordingly
-	for (var i = 0; i < parameter.length; i ++){
+	var i = 0;
+	while ( i < parameter.length){
 		var separateSets = parameter[i].split("=");
 		//returns [name, value] for each separateSet
 		//assign name and value to separate variables that will be used in object
 		var propName = separateSets[0];
 		var propValue = separateSets[1];
 		theFormObj[propName] = propValue;
+		i ++;
 	}
 	return theFormObj;
 }
