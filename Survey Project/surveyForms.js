@@ -25,7 +25,7 @@ function validateRadiosSurvey1(formName){
 				break;
 			}
 		}
-	}
+	}  
 	//since created array of true booleans related to radio questions, must have length of 7 to be valid
 	if ( questionStatus.length === 7){
 		formAccept = true;
@@ -127,4 +127,11 @@ function getSubmittedForm(){
 		i ++;
 	}
 	return submittedFormObj;
+}
+
+//function to display our data from the submitted form object
+function displayFormDataObject(formObj){
+	for (var propName in formObj){
+		document.write("<p>" + propName + ":" + formObj[propName]+"</p>");
+	}
 }
