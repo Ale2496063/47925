@@ -64,7 +64,7 @@ Credit for patterns/themes/texture belongs to
 							}
 							break;
 						case "age":
-							var studentAgePattern = new RegExp ("^([1-9]{1}|[1-9]{1}[1-9]{1})$");
+							var studentAgePattern = new RegExp ("^([1-9]{1}|[1-9]{1}[0-9]{1})$");
 							var studentAgeResult = studentAgePattern.exec(fieldValue);
 							if (studentAgeResult == null){
 								formAlert += "Student Age Error, ";
@@ -274,57 +274,15 @@ Credit for patterns/themes/texture belongs to
 					<input type="text" name="city" id="city">
 					<label for="state">State:</label>
 					<select name="state" id="state">
-						<option>State</option>
-						<option value="AL">AL</option>
-						<option value="AK">AK</option>
-						<option value="AZ">AZ</option>
-						<option value="AR">AR</option>
-						<option value="CA">CA</option>
-						<option value="CO">CO</option>
-						<option value="CT">CT</option>
-						<option value="DE">DE</option>
-						<option value="FL">FL</option>
-						<option value="GA">GA</option>
-						<option value="HI">HI</option>
-						<option value="ID">ID</option>
-						<option value="IL">IL</option>
-						<option value="IN">IN</option>
-						<option value="IA">IA</option>
-						<option value="KS">KS</option>
-						<option value="KY">KY</option>
-						<option value="LA">LA</option>
-						<option value="ME">ME</option>
-						<option value="MD">MD</option>
-						<option value="MA">MA</option>
-						<option value="MI">MI</option>
-						<option value="MN">MN</option>
-						<option value="MS">MS</option>
-						<option value="MO">MO</option>
-						<option value="MT">MT</option>
-						<option value="NE">NE</option>
-						<option value="NV">NV</option>
-						<option value="NH">NH</option>
-						<option value="NJ">NJ</option>
-						<option value="NM">NM</option>
-						<option value="NY">NY</option>
-						<option value="NC">NC</option>
-						<option value="ND">ND</option>
-						<option value="OH">OH</option>
-						<option value="OK">OK</option>
-						<option value="OH">OH</option>
-						<option value="PA">PA</option>
-						<option value="RI">RI</option>
-						<option value="SC">SC</option>
-						<option value="SD">SD</option>
-						<option value="TN">TN</option>
-						<option value="TX">TX</option>
-						<option value="UT">UT</option>
-						<option value="VT">VT</option>
-						<option value="VA">VA</option>
-						<option value="WA">WA</option>
-						<option value="WV">WV</option>
-						<option value="WI">WI</option>
-						<option value="WY">WY</option>
+						<script>
+							var stateList = ["State","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OH","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
+
+							var i = 0;
+							do {
+								document.write("<option>" + stateList[i] + "</option>");
+								i ++;
+							} while( i < stateList.length);
+						</script>
 					</select><br/>
 					<label for="zipcode">Zipcode:</label>
 					<input type="text" name="zipcode" id="zipcode">
@@ -345,57 +303,15 @@ Credit for patterns/themes/texture belongs to
 					<input type="text" name="cityGuard" id="cityGuard">
 					<label for="stateGuard">State:</label>
 					<select name="stateGuard" id="stateGuard">
-						<option>State</option>
-						<option value="AL">AL</option>
-						<option value="AK">AK</option>
-						<option value="AZ">AZ</option>
-						<option value="AR">AR</option>
-						<option value="CA">CA</option>
-						<option value="CO">CO</option>
-						<option value="CT">CT</option>
-						<option value="DE">DE</option>
-						<option value="FL">FL</option>
-						<option value="GA">GA</option>
-						<option value="HI">HI</option>
-						<option value="ID">ID</option>
-						<option value="IL">IL</option>
-						<option value="IN">IN</option>
-						<option value="IA">IA</option>
-						<option value="KS">KS</option>
-						<option value="KY">KY</option>
-						<option value="LA">LA</option>
-						<option value="ME">ME</option>
-						<option value="MD">MD</option>
-						<option value="MA">MA</option>
-						<option value="MI">MI</option>
-						<option value="MN">MN</option>
-						<option value="MS">MS</option>
-						<option value="MO">MO</option>
-						<option value="MT">MT</option>
-						<option value="NE">NE</option>
-						<option value="NV">NV</option>
-						<option value="NH">NH</option>
-						<option value="NJ">NJ</option>
-						<option value="NM">NM</option>
-						<option value="NY">NY</option>
-						<option value="NC">NC</option>
-						<option value="ND">ND</option>
-						<option value="OH">OH</option>
-						<option value="OK">OK</option>
-						<option value="OH">OH</option>
-						<option value="PA">PA</option>
-						<option value="RI">RI</option>
-						<option value="SC">SC</option>
-						<option value="SD">SD</option>
-						<option value="TN">TN</option>
-						<option value="TX">TX</option>
-						<option value="UT">UT</option>
-						<option value="VT">VT</option>
-						<option value="VA">VA</option>
-						<option value="WA">WA</option>
-						<option value="WV">WV</option>
-						<option value="WI">WI</option>
-						<option value="WY">WY</option>
+						<script>
+							var stateList = ["State","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OH","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
+
+							var i = 0;
+							do {
+								document.write("<option>" + stateList[i] + "</option>");
+								i ++;
+							} while( i < stateList.length);
+						</script>
 					</select><br/>
 					<label for="zipcodeGuard">Zipcode:</label>
 					<input type="text" name="zipcodeGuard" id="zipcodeGuard">
@@ -417,57 +333,15 @@ Credit for patterns/themes/texture belongs to
 					<input type="text" name="cityEmer" id="cityEmer">
 					<label for="stateEmer">State:</label>
 					<select name="stateEmer" id="stateEmer">
-						<option>State</option>
-						<option value="AL">AL</option>
-						<option value="AK">AK</option>
-						<option value="AZ">AZ</option>
-						<option value="AR">AR</option>
-						<option value="CA">CA</option>
-						<option value="CO">CO</option>
-						<option value="CT">CT</option>
-						<option value="DE">DE</option>
-						<option value="FL">FL</option>
-						<option value="GA">GA</option>
-						<option value="HI">HI</option>
-						<option value="ID">ID</option>
-						<option value="IL">IL</option>
-						<option value="IN">IN</option>
-						<option value="IA">IA</option>
-						<option value="KS">KS</option>
-						<option value="KY">KY</option>
-						<option value="LA">LA</option>
-						<option value="ME">ME</option>
-						<option value="MD">MD</option>
-						<option value="MA">MA</option>
-						<option value="MI">MI</option>
-						<option value="MN">MN</option>
-						<option value="MS">MS</option>
-						<option value="MO">MO</option>
-						<option value="MT">MT</option>
-						<option value="NE">NE</option>
-						<option value="NV">NV</option>
-						<option value="NH">NH</option>
-						<option value="NJ">NJ</option>
-						<option value="NM">NM</option>
-						<option value="NY">NY</option>
-						<option value="NC">NC</option>
-						<option value="ND">ND</option>
-						<option value="OH">OH</option>
-						<option value="OK">OK</option>
-						<option value="OH">OH</option>
-						<option value="PA">PA</option>
-						<option value="RI">RI</option>
-						<option value="SC">SC</option>
-						<option value="SD">SD</option>
-						<option value="TN">TN</option>
-						<option value="TX">TX</option>
-						<option value="UT">UT</option>
-						<option value="VT">VT</option>
-						<option value="VA">VA</option>
-						<option value="WA">WA</option>
-						<option value="WV">WV</option>
-						<option value="WI">WI</option>
-						<option value="WY">WY</option>
+						<script>
+							var stateList = ["State","AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD","MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OH","PA","RI","SC","SD","TN","TX","UT","VT","VA","WA","WV","WI","WY"];
+
+							var i = 0;
+							do {
+								document.write("<option>" + stateList[i] + "</option>");
+								i ++;
+							} while( i < stateList.length);
+						</script>
 					</select><br/>
 					<label for="zipcodeEmer">Zipcode:</label>
 					<input type="text" name="zipcodeEmer" id="zipcodeEmer">
