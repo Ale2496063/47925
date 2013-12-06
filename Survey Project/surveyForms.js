@@ -99,10 +99,69 @@ function validateSurvey1(formName){
 	return true;
 }
 
+/*************************	For Survey 2 Validation	*********************/
 
+function validateRadiosSurvey2(formName){
+	var formAccept = false;
+	var questionStatus = [];
+	//will check radio buttons first to see if selected
+	//array of radio names that will use in loop and check
+	var radioList = ["inLab","accidentFree","undies"];
+	// each radio name in the form will have it's own array of booleans because of same name
+	//loop through our radioList and check its boolean array
+	for (var i = 0; i < radioList.length; i++){
+		var currentRadioArray = formName[radioList[i]];
+		//now have array of boolean values example[F,F,F,F], loop through each
+		for ( var k = 0; k < currentRadioArray.length; k ++){
+			//check for a true boolean to indicate that a selection has been made
+			//if any selection made per question, save the status if it's true
+			if( currentRadioArray[k].checked){
+				questionStatus.push(currentRadioArray[k].checked)
+				break;
+			}
+		}
+	}  
+	//since created array of true booleans related to radio questions, must have length of 7 to be valid
+	if ( questionStatus.length === 3){
+		formAccept = true;
+	} else {
+		alert("Questions 1-3 are incomplete");	
+	}
+	return formAccept;
+}
 
+/*************************	For Survey 3 Validation	*********************/
 
-
+function validateBoxesSurvey3(formName){
+	//similar to radio button validation, have array that will push values into
+	var questionStatus = [];
+	var boxStatus = [];
+	var checkboxesValid = false;
+	//2d array of our checkbox names. Inner array consists of names for particular question
+	//outer array [question 1, question 2, question 3]
+	var checkBoxArray2D = [["shelter", "montypython","swim", "hunt"],["pretend","igloo","cameraman","position"],["blanket","eat","unpack", "tv"]];
+	//for each outer array, loop through the inner array values to do a check
+	for (var i = 0; i < checkBoxArray2D.length ; i ++){
+		for ( var k = 0; k < checkboxArray2D[i].length; k ++){
+			if( formName[checkboxArray2D[i][k]].checked){
+				boxStatus.push(checkboxArray2D[i][k].checked);
+			}
+		}
+		//if have at least one box checked then that question is valid, otherwise send alert
+		//push boolean to our questionStatus array
+		if( boxStatus.length >= 1){
+			questionStatus.push("valid");
+		} else{
+			alert("Please select at least one option per question.");
+		}
+	}
+	//allow form to be submitted if questionStatus array = 3
+		if (questionStatus.length === 3){
+			checkboxesValid = true;
+		}
+	return checkboxesValid;
+}
+		
 
 /*************************	To create object from our Form values	*********************/
 
