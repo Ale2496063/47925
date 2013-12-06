@@ -142,25 +142,27 @@ function validateBoxesSurvey3(formName){
 	var checkBoxArray2D = [["shelter", "montypython","swim", "hunt"],["pretend","igloo","cameraman","position"],["blanket","eat","unpack", "tv"]];
 	//for each outer array, loop through the inner array values to do a check
 	for (var i = 0; i < checkBoxArray2D.length ; i ++){
-		for ( var k = 0; k < checkboxArray2D[i].length; k ++){
-			if( formName[checkboxArray2D[i][k]].checked){
-				boxStatus.push(checkboxArray2D[i][k].checked);
+		for ( var k = 0; k < checkBoxArray2D[i].length; k ++){
+			if( formName[checkBoxArray2D[i][k]].checked){
+				boxStatus.push(formName[checkBoxArray2D[i][k]].checked);
 			}
 		}
 		//if have at least one box checked then that question is valid, otherwise send alert
 		//push boolean to our questionStatus array
 		if( boxStatus.length >= 1){
 			questionStatus.push("valid");
-		} else{
-			alert("Please select at least one option per question.");
 		}
+		//reinitialize boxStatus
+		boxStatus.length = 0;
 	}
 	//allow form to be submitted if questionStatus array = 3
 		if (questionStatus.length === 3){
 			checkboxesValid = true;
+		}else{
+			alert("Please select at least one option per question.");
 		}
 	return checkboxesValid;
-}
+} 
 		
 
 /*************************	To create object from our Form values	*********************/
