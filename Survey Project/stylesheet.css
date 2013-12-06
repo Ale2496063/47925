@@ -21,6 +21,16 @@ body {
 	min-width:1000px;
 }
 
+#banner {
+	padding: 20px;
+	background-color: rgba(102,79,46,.8);
+	margin-bottom: 70px;
+}
+
+#banner h1 {
+	font-size: 2.2em;
+}
+
 .sidebar {
 	width:225px;
 	float: left;
@@ -49,12 +59,13 @@ nav ul li {
 	text-indent: 30px;
 }
 
-#surveyList , form, #submittedMessage {
+#surveyList , .surveyForms, #submittedMessage, #box {
 	border:1px solid black;
 	width: 600px;
 	padding: 20px;
 	float:right;
 	background: rgba(171, 136, 99, .6);
+	margin-bottom: 50px;
 }
 
 button {
@@ -65,4 +76,39 @@ button {
 .surveyDescription {
 	margin-left: 110px;
 	margin-top: 0;
+}
+
+#userList, #userSurList {
+	border: 1px solid white;
+	width: 600px;
+	height: 800px;
+	overflow:scroll;
+	padding: 10px;
+	margin-bottom: 50px;
+}
+
+#userList {
+	float: left;
+}
+
+#userSurList {
+	float: right;
+}
+
+#adminWrap{
+	min-width: 1300px;
+	margin: 0 10% 0 10%;
+	
+}
+
+#loginWrapper{
+	margin: 10% 40%;
+}
+
+footer {
+	font-variant:small-caps;
+	font-size:12px;
+	margin: 0 40%;
+	margin-top: 600px;
+	clear: both;
 }

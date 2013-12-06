@@ -17,40 +17,47 @@
 		<section class="wrapper">
 			<div class="sidebar">
 				<div class="userMsg">
-					<p>Test</p>
+					<p>Navigation</p>
 				</div>
 				<!-- For navigation have an enter your name page, dashboard page, survey results page-->
 				<nav>
 					<ul>
-						<li><a href="">Welcome</a></li>
+						<li><a href="userWelcome.html">Welcome</a></li>
 						<li><a href="dashboard.html">Dashboard</a></li>
-						<li><a href="">Results</a></li>
+						<li><a href="surveyResultComparison.html">Results</a></li>
+						<li><a href="userCreateSurvey.html">Create</a></li>
 					</ul>
 				</nav>
 			</div>
-		
-			<form name="survey3" method="GET" action="survey3Submit.html" onsubmit="return validateBoxesSurvey3(survey3)">
-				<h2>Survival Survey</h2>
-				<p>1) You're the new Bear Grylls, it's almost sunset in the tundra! What will you accomplish?<br> Check all that apply.</p>
-				<input type="checkbox" name="q1Op1" value="shelter" id="shelter"><label for="shelter">Create a shelter by punching a hole in a boulder.</label><br>
-				<input type="checkbox" name="q1Op2" value="montypython" id="montypython"><label for="montypython">Try to get a fire started using shrubbery taken from the knights who say ni!</label><br>
-				<input type="checkbox" name="q1Op3" value="swim" id="swim"><label for="swim">Swim across an icy stream for no reason other than to prove that you are invincible.</label><br>
-				<input type="checkbox" name="q1Op4" value="hunt" id="hunt"><label for="hunt">Hunt for food by searching in the most difficult areas first.</label>
+			<section class="surveyForms">
+				<form name="survey3" method="GET" action="survey3Submit.html" onsubmit="return validateBoxesSurvey3(survey3)">
+					<h2>Survival Survey</h2>
+					<p>1) You're the new Bear Grylls, it's almost sunset in the tundra! What will you accomplish?<br> Check all that apply.</p>
+					<input type="checkbox" name="q1Op1" value="shelter" id="shelter"><label for="shelter">Create a shelter by punching a hole in a boulder.</label><br>
+					<input type="checkbox" name="q1Op2" value="montypython" id="montypython"><label for="montypython">Try to get a fire started using shrubbery taken from the knights who say ni!</label><br>
+					<input type="checkbox" name="q1Op3" value="swim" id="swim"><label for="swim">Swim across an icy stream for no reason other than to prove that you are invincible.</label><br>
+					<input type="checkbox" name="q1Op4" value="hunt" id="hunt"><label for="hunt">Hunt for food by searching in the most difficult areas first.</label>
 
-				<p>2)The sun has set and you have forgotten to start a fire! What should you do?<br> Check all that apply</p>
-				<input type="checkbox" name="q2Op1" value="pretend" id="pretend"><label for="pretend">Play pretend! It's actually a bit hot isn't it? You don't need a fire if it's hot...</label><br>
-				<input type="checkbox" name="q2Op2" value="igloo" id="igloo"><label for="igloo">Realize that you created an igloo as your shelter and its superb insulation protects you from the cold.</label><br>
-				<input type="checkbox" name="q2Op3" value="cameraman" id="cameraman"><label for="cameraman">Ask the cameraman that does all the same exploring as you do, but with a heavy camera at all times, for an extra jacket. </label><br>
-				<input type="checkbox" name="q2Op4" value="position" id="position"><label for="position">Decide that if you're found frozen solid, you want to be discovered in the coolest karate position ever.</label><br>
+					<p>2)The sun has set and you have forgotten to start a fire! What should you do?<br> Check all that apply</p>
+					<input type="checkbox" name="q2Op1" value="pretend" id="pretend"><label for="pretend">Play pretend! It's actually a bit hot isn't it? You don't need a fire if it's hot...</label><br>
+					<input type="checkbox" name="q2Op2" value="igloo" id="igloo"><label for="igloo">Realize that you created an igloo as your shelter and its superb insulation protects you from the cold.</label><br>
+					<input type="checkbox" name="q2Op3" value="cameraman" id="cameraman"><label for="cameraman">Ask the cameraman that does all the same exploring as you do, but with a heavy camera at all times, for an extra jacket. </label><br>
+					<input type="checkbox" name="q2Op4" value="position" id="position"><label for="position">Decide that if you're found frozen solid, you want to be discovered in the coolest karate position ever.</label><br>
 				
-				<p>3)You survived the night! What will you do when you get home?<br> Check all that apply</p>
-				<input type="checkbox" name="q3Op1" value="blanket" id="blanket"><label for="blanket">Barrel roll into your bed and hide under your blankets.</label><br>
-				<input type="checkbox" name="q3Op2" value="eat" id="eat"><label for="eat">Raid the fridge like the pirate you are.</label><br>
-				<input type="checkbox" name="q3Op3" value="unpack" id="unpack"><label for="unpack">Neatly unpack your tiny survival bag, which consists of only two items.</label><br>
-				<input type="checkbox" name="q3Op4" value="tv" id="tv"><label for="tv">Watch your idol Bear Grylls on t.v.</label><br>
+					<p>3)You survived the night! What will you do when you get home?<br> Check all that apply</p>
+					<input type="checkbox" name="q3Op1" value="blanket" id="blanket"><label for="blanket">Barrel roll into your bed and hide under your blankets.</label><br>
+					<input type="checkbox" name="q3Op2" value="eat" id="eat"><label for="eat">Raid the fridge like the pirate you are.</label><br>
+					<input type="checkbox" name="q3Op3" value="unpack" id="unpack"><label for="unpack">Neatly unpack your tiny survival bag, which consists of only two items.</label><br>
+					<input type="checkbox" name="q3Op4" value="tv" id="tv"><label for="tv">Watch your idol Bear Grylls on t.v.</label><br>
 			
-				<input type="submit" value="Send">
-			</form>
+					<input type="submit" value="Send">
+				</form>
+			</section>
 		</section>
+		<footer>
+			<p>CIS 14 A Survey Site Project</p>
+			<p>All code written by Amy Le</p>
+			<p>Image credits in stylesheet</p>
+		</footer>
 	</body>
 </html>
