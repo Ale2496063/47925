@@ -78,21 +78,13 @@ button {
 	margin-top: 0;
 }
 
-#userList, #userSurList {
+#userList {
 	border: 1px solid white;
 	width: 600px;
 	height: 800px;
 	overflow:scroll;
 	padding: 10px;
-	margin-bottom: 50px;
-}
-
-#userList {
-	float: left;
-}
-
-#userSurList {
-	float: right;
+	margin: 0 10% 50px 10%;
 }
 
 #adminWrap{

@@ -163,6 +163,71 @@ function validateBoxesSurvey3(formName){
 		}
 	return checkboxesValid;
 } 
+
+/*************************	For Survey Create Account Validation	*********************/
+
+function validateAccountForm (formName){
+	var formValid = false;
+	//array of our input names to go through and validate with switch
+	var inputNames = ["newFirstName", "newLastName", "newEmail", "newUserNam", "newUserPw", "verifyPw"];
+	var error = [];
+	//need to get the value at each field and compare to regex
+	for (var i = 0; i < inputNames.length; i ++){
+		var name = inputNames[i];
+		var inputValue = formName[name].value;
+		
+		//use switch
+		switch(name){
+			case "newFirstName":
+				var fNamPattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z]{1}[a-z]*|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+				var fNameResult = fNamPattern.exec(inputValue);
+				if (fNameResult == null){
+					error.push(fNameResult);
+				}
+				break;
+			case "newLastName":
+				var lNamePattern = new RegExp ("(^[A-Z]{1}[a-z]*$|^[A-Z]{1}[a-z]{1}[A-Z]{1}[a-z]*|^[A-Z]{1}[a-z]*[\+, \s]{1}[A-Z]{1}[a-z]*$)");
+				var lNameResult = lNamePattern.exec(inputValue);
+				if (fNameResult == null){
+					error.push(lNameResult);
+				}
+				break;
+			case "newEmail":
+				var emailPattern = new RegExp ("[A-Z, a-z, 0-9, \w,\!,\#,\$,\%,\&,\',\*,\+,\-,\/,\=,\?,\^,\_,\`,\{,\|,\},\~]+\@{1}[A-Z, a-z]+\.[A-Z, a-z]+");
+				var emailResult = emailPattern.exec(inputValue);
+				if (emailResult == null){
+					error.push(emailResult);
+				}
+				break;
+			case "newUserNam":
+				var usernamePattern = new RegExp("^[A-Z, a-z, 0-9]{6}$");
+				var usernameResult = usernamePattern.exec(inputValue);
+				if (usernameResult == null){
+					error.push(usernameResult);
+				}
+				break;
+			case "newUserPw":
+				var newPwPattern = new RegExp("^[0-9]{4}$");
+				var newPwResult = newPwPattern.exec(inputValue);
+				if (newPwResult == null){
+					error.push(newPwResult);	
+				}
+				break;
+			case "verifyPw":
+				//must compare to value at "newUserPw"
+				if (inputValue != formName["newUserPw"].value){
+					error.push(null);
+				}
+		}
+	}
+	//check to see if any values in our error array, if there are, form is invalid
+	if (error.length > 0){
+		alert("One or more fields are invalid");
+	} else{
+		formValid = true;
+	}
+	return formValid;
+}
 		
 
 /*************************	To create object from our Form values	*********************/
