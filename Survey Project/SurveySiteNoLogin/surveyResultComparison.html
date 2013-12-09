@@ -23,7 +23,7 @@
 				<!-- For navigation have an enter your name page, dashboard page, survey results page-->
 				<nav>
 					<ul>
-						<li><a href="userWelcome.html">Welcome</a></li>
+						<li><a href="surveyIndex.html">Welcome</a></li>
 						<li><a href="dashboard.html">Dashboard</a></li>
 						<li><a href="surveyResultComparison.html">Results</a></li>
 					</ul>
@@ -38,47 +38,86 @@
 					<script>
                         //display our results in percentages for survey 1
                         //question 1
-						document.write("<p>Question 1, answer 1: " + localStorage.getItem("q1a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 1, answer 2: " + localStorage.getItem("q1a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 1, answer 3: " + localStorage.getItem("q1a3")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 1, answer 4: " + localStorage.getItem("q1a4")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+						document.write("<p>Question 1, answer 1: " + (localStorage.getItem("q1a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 2: " + (localStorage.getItem("q1a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 3: " + (localStorage.getItem("q1a3")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 4: " + (localStorage.getItem("q1a4")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 2
-                        document.write("<p>Question 2, answer 1: " + localStorage.getItem("q2a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 2, answer 2: " + localStorage.getItem("q2a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 2, answer 3: " + localStorage.getItem("q2a3")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 2, answer 4: " + localStorage.getItem("q2a4")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+                        document.write("<p>Question 2, answer 1: " + (localStorage.getItem("q2a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 2: " + (localStorage.getItem("q2a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 3: " + (localStorage.getItem("q2a3")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 4: " + (localStorage.getItem("q2a4")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 3
-                        document.write("<p>Question 3, answer 1: " + localStorage.getItem("q3a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 3, answer 2: " + localStorage.getItem("q3a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 3, answer 3: " + localStorage.getItem("q3a3")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 3, answer 4: " + localStorage.getItem("q3a4")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+                        document.write("<p>Question 3, answer 1: " + (localStorage.getItem("q3a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 2: " + (localStorage.getItem("q3a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 3: " + (localStorage.getItem("q3a3")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 4: " + (localStorage.getItem("q3a4")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 4
-                        document.write("<p>Question 4, answer 1: " + localStorage.getItem("q4a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 4, answer 2: " + localStorage.getItem("q4a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 4, answer 3: " + localStorage.getItem("q4a3")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 4, answer 4: " + localStorage.getItem("q4a4")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 4, answer 5: " + localStorage.getItem("q4a5")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+                        document.write("<p>Question 4, answer 1: " + (localStorage.getItem("q4a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 4, answer 2: " + (localStorage.getItem("q4a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 4, answer 3: " + (localStorage.getItem("q4a3")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 4, answer 4: " + (localStorage.getItem("q4a4")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 4, answer 5: " + (localStorage.getItem("q4a5")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 5
-                        document.write("<p>Question 5, answer 1: " + localStorage.getItem("q5a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 5, answer 2: " + localStorage.getItem("q5a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 5, answer 3: " + localStorage.getItem("q5a3")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 5, answer 4: " + localStorage.getItem("q5a4")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 5, answer 5: " + localStorage.getItem("q5a5")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+                        document.write("<p>Question 5, answer 1: " + (localStorage.getItem("q5a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 5, answer 2: " + (localStorage.getItem("q5a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 5, answer 3: " + (localStorage.getItem("q5a3")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 5, answer 4: " + (localStorage.getItem("q5a4")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 5, answer 5: " + (localStorage.getItem("q5a5")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 6
-                        document.write("<p>Question 6, answer 1: " + localStorage.getItem("q6a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 6, answer 2: " + localStorage.getItem("q6a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+                        document.write("<p>Question 6, answer 1: " + (localStorage.getItem("q6a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 6, answer 2: " + (localStorage.getItem("q6a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 7
-                        document.write("<p>Question 7, answer 1: " + localStorage.getItem("q7a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 7, answer 2: " + localStorage.getItem("q7a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+                        document.write("<p>Question 7, answer 1: " + (localStorage.getItem("q7a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 7, answer 2: " + (localStorage.getItem("q7a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
                         //question 8
-                        document.write("<p>Question 8, answer 1: " + localStorage.getItem("q8a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 8, answer 2: " + localStorage.getItem("q8a2")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 8, answer 3: " + localStorage.getItem("q8a3")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        document.write("<p>Question 8, answer 4: " + localStorage.getItem("q8a4")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
-                        
+                        document.write("<p>Question 8, answer 1: " + (localStorage.getItem("q8a1")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 8, answer 2: " + (localStorage.getItem("q8a2")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 8, answer 3: " + (localStorage.getItem("q8a3")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 8, answer 4: " + (localStorage.getItem("q8a4")/localStorage.getItem("numberOfSurveyTakers")*100).toFixed(2) + " %</p>");
 					</script>
-					
 				</section>
+                <section id="survey2Results">
+                   <h3>Survey 2</h3>
+                    <script>
+                        //display our results in precentages for survey 2
+                        //question 1
+                        document.write("<p>Question 1, answer 1: " + (localStorage.getItem('s2q1a1')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 2: " + (localStorage.getItem('s2q1a2')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 3: " + (localStorage.getItem('s2q1a3')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 4: " + (localStorage.getItem('s2q1a4')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        //question 2
+                        document.write("<p>Question 2, answer 1: " + (localStorage.getItem('s2q2a1')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 2: " + (localStorage.getItem('s2q2a2')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 3: " + (localStorage.getItem('s2q2a3')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 4: " + (localStorage.getItem('s2q2a4')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        //question 3
+                        document.write("<p>Question 3, answer 1: " + (localStorage.getItem('s2q3a1')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 2: " + (localStorage.getItem('s2q3a2')/localStorage.getItem("survey2Takers")*100).toFixed(2) + " %</p>");
+                    </script>
+                </section>
+                <section id="survey3Results">
+                   <h3>Survey 3</h3>
+                    <script>
+                        //display our results in precentages for survey 3
+                        //question 1
+                        document.write("<p>Question 1, answer 1: " + (localStorage.getItem("s3q1a1")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 2: " + (localStorage.getItem("s3q1a2")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 3: " + (localStorage.getItem("s3q1a3")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 1, answer 4: " + (localStorage.getItem("s3q1a4")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        //question 2
+                        document.write("<p>Question 2, answer 1: " + (localStorage.getItem("s3q2a1")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 2: " + (localStorage.getItem("s3q2a2")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 3: " + (localStorage.getItem("s3q2a3")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 2, answer 4: " + (localStorage.getItem("s3q2a4")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        //question 3
+                        document.write("<p>Question 3, answer 1: " + (localStorage.getItem("s3q3a1")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 2: " + (localStorage.getItem("s3q3a2")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 3: " + (localStorage.getItem("s3q3a3")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                        document.write("<p>Question 3, answer 4: " + (localStorage.getItem("s3q3a4")/localStorage.getItem("survey3Takers")*100).toFixed(2) + " %</p>");
+                       
+                    </script>
+                </section>
 			</div>
 		</section>
 		<footer>

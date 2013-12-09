@@ -324,7 +324,6 @@ function answerTracker(formObj){
 	var q8a3 = localStorage.getItem('q8a3') || 0;
 	var q8a4 = localStorage.getItem('q8a4') || 0;
 	
-	var formObj = getSubmittedForm();
 	
 	//increment corresponding counter for selected answer per question
 	for (var name in formObj){
@@ -493,33 +492,156 @@ localStorage.getItem(key);*/
 /*************************/
 
 /*************************	For Local Storage Survey 2	*********************/
+function answerTracker2(formObj){
+    //have way to keep track of how many people take this survey
+    var survey2Takers = localStorage.getItem('survey2Takers') || 0;
+    //our counters for survey 2
+    var s2q1a1 = localStorage.getItem('s2q1a1') || 0;
+    var s2q1a2 = localStorage.getItem('s2q1a2') || 0;
+    var s2q1a3 = localStorage.getItem('s2q1a3') || 0;
+    var s2q1a4 = localStorage.getItem('s2q1a4') || 0;
 
-/*var s2q1a1 = 0;
-var s2q1a2 = 0;
-var s2q1a3 = 0;
-var s2q1a4 = 0;
+    var s2q2a1 = localStorage.getItem('s2q2a1') || 0;
+    var s2q2a2 = localStorage.getItem('s2q2a2') || 0;
+    var s2q2a3 = localStorage.getItem('s2q2a3') || 0;
+    var s2q2a4 = localStorage.getItem('s2q2a4') || 0;
 
-var s2q2a1 = 0;
-var s2q2a2 = 0;
-var s2q2a3 = 0;
-var s2q2a4 = 0;
+    var s2q3a1 = localStorage.getItem('s2q3a1') || 0;
+    var s2q3a2 = localStorage.getItem('s2q3a2') || 0;
+    
+    //loop through each name and compare its value to increment its corresponding counter
+    for(var name in formObj){
+        switch(formObj[name]){
+            //question 1
+            case 'scareTactic':
+                s2q1a1++;
+                break;
+            case 'leave':
+                s2q1a2++;
+                break;
+            case 'play':
+                s2q1a3++;
+                break;
+            case 'science':
+                s2q1a4++;
+                break;
+            //question 2
+            case 'survive':
+                s2q2a1++;
+                break;
+            case 'disappoint':
+                s2q2a2++;
+                break;
+            case 'scheme':
+                s2q2a3++;
+                break;
+            case 'super':
+                s2q2a4++;
+                break;
+            //question 3
+            case 'yeaUndies':
+                s2q3a1++;
+                break;
+            case 'nayUndies':
+                s2q3a2++;
+                break;
+            default:
+        }
+    }
+    //increment our number of survey takers
+    survey2Takers++;
+    //set our values for counter into local storage
+    localStorage.setItem('survey2Takers', survey2Takers);
+    localStorage.setItem('s2q1a1', s2q1a1);
+    localStorage.setItem('s2q1a2', s2q1a2);
+    localStorage.setItem('s2q1a3', s2q1a3);
+    localStorage.setItem('s2q1a4', s2q1a4);
+    localStorage.setItem('s2q2a1', s2q2a1);
+    localStorage.setItem('s2q2a2', s2q2a2);
+    localStorage.setItem('s2q2a3', s2q2a3);
+    localStorage.setItem('s2q2a4', s2q2a4);
+    localStorage.setItem('s2q3a1', s2q3a1);
+    localStorage.setItem('s2q3a2', s2q3a2);
+}
 
-var s2q3a1 = 0;
-var s2q3a2 = 0;*/
 /*************************	For Local Storage Survey 3	*********************/
 
-/*var s3q1a1 = 0;
-var s3q1a2 = 0;
-var s3q1a3 = 0;
-var s3q1a4 = 0;
+function answerTracker3(formObj){
+    //counter for number of times survey taken
+    var survey3Takers = localStorage.getItem('survey3Takers') || 0;
+    //counter for all question answers
+    var s3q1a1 = localStorage.getItem('s3q1a1') || 0;
+    var s3q1a2 = localStorage.getItem('s3q1a2') || 0;
+    var s3q1a3 = localStorage.getItem('s3q1a3') || 0;
+    var s3q1a4 = localStorage.getItem('s3q1a4') || 0;
 
-var s3q2a1 = 0;
-var s3q2a2 = 0;
-var s3q2a3 = 0;
-var s3q2a4 = 0;
+    var s3q2a1 = localStorage.getItem('s3q2a1') || 0;   
+    var s3q2a2 = localStorage.getItem('s3q2a2') || 0;
+    var s3q2a3 = localStorage.getItem('s3q2a3') || 0;
+    var s3q2a4 = localStorage.getItem('s3q2a4') || 0;
 
-var s3q3a1 = 0;
-var s3q3a2 = 0;
-var s3q3a3 = 0;
-var s3q3a4 = 0;*/
+    var s3q3a1 = localStorage.getItem('s3q3a1') || 0;
+    var s3q3a2 = localStorage.getItem('s3q3a2') || 0;
+    var s3q3a3 = localStorage.getItem('s3q3a3') || 0;
+    var s3q3a4 = localStorage.getItem('s3q3a4') || 0;
+    //now loop through our submitted form object values to match with case
+    for(var name in formObj){
+        switch(formObj[name]){
+            case 'shelter':
+                s3q1a1++;
+                break;
+            case 'montypython':
+                s3q1a2++;
+                break;
+            case 'swim':
+                s3q1a3++;
+                break;
+            case 'hunt':
+                s3q1a4++;
+                break;
+            case 'pretend':
+                s3q2a1++;
+                break;
+            case 'igloo':
+                s3q2a2++;
+                break;
+            case 'cameraman':
+                s3q2a3++;
+                break;
+            case 'position':
+                s3q2a4++;
+                break;
+            case 'blanket':
+                s3q3a1++;
+                break;
+            case 'eat':
+                s3q3a2++;
+                break;
+            case 'unpack':
+                s3q3a3++;
+                break;
+            case 'tv':
+                s3q3a4++;
+                break;
+            default:
+                //do nothing
+        }//end of switch
+    }//end of loop
+    //increment survey3Takers
+    survey3Takers++;
+    //set our variables in local storage
+    localStorage.setItem('survey3Takers', survey3Takers);
+    localStorage.setItem('s3q1a1', s3q1a1);
+    localStorage.setItem('s3q1a2', s3q1a2);
+    localStorage.setItem('s3q1a3', s3q1a3);
+    localStorage.setItem('s3q1a4', s3q1a4);
+    localStorage.setItem('s3q2a1', s3q2a1);
+    localStorage.setItem('s3q2a2', s3q2a2);
+    localStorage.setItem('s3q2a3', s3q2a3);
+    localStorage.setItem('s3q2a4', s3q2a4);
+    localStorage.setItem('s3q3a1', s3q3a1);
+    localStorage.setItem('s3q3a2', s3q3a2);
+    localStorage.setItem('s3q3a3', s3q3a3);
+    localStorage.setItem('s3q3a4', s3q3a4);
+}
 
