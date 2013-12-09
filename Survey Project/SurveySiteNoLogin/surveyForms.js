@@ -6,9 +6,9 @@
 /*************************	For Survey 1 Validation	*********************/
 
 //function to validate radios
-function validateRadiosSurvey1(formName){
-	var formAccept = false;
-	var questionStatus = [];
+function validateRadiosSurvey1(formName) {
+	var formAccept = false,
+        questionStatus = [];
 	//will check radio buttons first to see if selected
 	//array of radio names that will use in loop and check
 	var radioList = ["train", "wood", "rainbow", "burrito", "baconIsle", "cookie", "sleep"];
@@ -101,7 +101,7 @@ function validateSurvey1(formName){
 
 /*************************	For Survey 2 Validation	*********************/
 
-function validateRadiosSurvey2(formName){
+function validateRadiosSurvey2(formName) {
 	var formAccept = false;
 	var questionStatus = [];
 	//will check radio buttons first to see if selected
@@ -261,3 +261,278 @@ function displayFormDataObject(formObj){
 		document.write("<p>" + propName + ":" + formObj[propName]+"</p>");
 	}
 }
+
+/*************************	For Local Storage Survey 1	*********************/
+
+/**
+for each question need to determine which answer selected
+need to be able to keep track of how many times each answer selected per question
+so after 6 people takes survey results should be as follows:
+example for single question
+ q1 a1 selected 0 times (if zero we should not display to document)
+ q1 a2 selected 3 times
+ q1 a3 selected 2 times
+ q1 a4 selected 1 times
+ 
+ already have our submitted form data stored into a form object
+**/
+
+//every time someone takes a survey, this must run to keep track of answers
+//only keep track of radio/checkbox questions, not text input ones
+function answerTracker(formObj){
+	var numberOfSurveyTakers = localStorage.getItem('numberOfSurveyTakers') || 0;
+	//will return null if no value in local storage
+
+	//counters for each answer per question
+	var q1a1 = localStorage.getItem('q1a1') || 0,        
+        q1a2 = localStorage.getItem('q1a2') || 0;
+	var q1a3 = localStorage.getItem('q1a3') || 0;
+	var q1a4 = localStorage.getItem('q1a4') || 0;
+
+	var q2a1 = localStorage.getItem('q2a1') || 0;
+	var q2a2 = localStorage.getItem('q2a2') || 0;
+	var q2a3 = localStorage.getItem('q2a3') || 0;
+	var q2a4 = localStorage.getItem('q2a4') || 0;
+
+	var q3a1 = localStorage.getItem('q3a1') || 0;
+	var q3a2 = localStorage.getItem('q3a2') || 0;
+	var q3a3 = localStorage.getItem('q3a3') || 0;
+	var q3a4 = localStorage.getItem('q3a4') || 0;
+
+	var q4a1 = localStorage.getItem('q4a1') || 0;
+	var q4a2 = localStorage.getItem('q4a2') || 0;
+	var q4a3 = localStorage.getItem('q4a3') || 0;
+	var q4a4 = localStorage.getItem('q4a4') || 0;
+	var q4a5 = localStorage.getItem('q4a5') || 0;
+
+	var q5a1 = localStorage.getItem('q5a1') || 0;
+	var q5a2 = localStorage.getItem('q5a2') || 0;
+	var q5a3 = localStorage.getItem('q5a3') || 0;
+	var q5a4 = localStorage.getItem('q5a4') || 0;
+	var q5a5 = localStorage.getItem('q5a5') || 0;
+
+	var q6a1 = localStorage.getItem('q6a1') || 0;
+	var q6a2 = localStorage.getItem('q6a2') || 0;
+
+	var q7a1 = localStorage.getItem('q7a1') || 0;
+	var q7a2 = localStorage.getItem('q7a2') || 0;
+
+	var q8a1 = localStorage.getItem('q8a1') || 0;
+	var q8a2 = localStorage.getItem('q8a2') || 0;
+	var q8a3 = localStorage.getItem('q8a3') || 0;
+	var q8a4 = localStorage.getItem('q8a4') || 0;
+	
+	var formObj = getSubmittedForm();
+	
+	//increment corresponding counter for selected answer per question
+	for (var name in formObj){
+		switch(formObj[name]){
+			//question 1
+			case "jump":
+				q1a1++;
+				break;
+			case "wait":
+				q1a2++;
+				break;
+			case "power":
+				q1a3++;
+				break;
+			case "dream":
+				q1a4++;
+				break;
+			//question 2
+			case "none":
+				q2a1++;
+				break;
+			case "forest":
+				q2a2++;
+				break;
+			case "one":
+				q2a3++;
+				break;
+			case "toothless":
+				q2a4++;
+				break;
+			//question 3
+			case "Midas":
+				q3a1++;
+				break;
+			case "leprechauns":
+				q3a2++;
+				break;
+			case "bling":
+				q3a3++;
+				break;
+			case "prism":
+				q3a4++;
+				break;
+			//question 4
+			case "burrito1":
+				q4a1++;
+				break;
+			case "burrito2":
+				q4a2++;
+				break;
+			case "burrito3":
+				q4a3++;
+				break;
+			case "burrito4":
+				q4a4++;
+				break;
+			case "burrito5":
+				q4a5++;
+				break;
+			//question 5
+			case "baconIsle1":
+				q5a1++;
+				break;
+			case "baconIsle2":
+				q5a2++;
+				break;
+			case "baconIsle3":
+				q5a3++;
+				break;
+			case "baconIsle4":
+				q5a4++;
+				break;
+			case "baconIsle5":
+				q5a5++;
+				break;
+			//question 6
+			case "cookieT":
+				q6a1++;
+				break;
+			case "cookieF":
+				q6a2++;
+				break;
+			//question 7
+			case "sleepT":
+				q7a1++;
+				break;
+			case "sleepF":
+				q7a2++;
+				break;
+			//question 8 answer 1
+			case "sad":
+				q8a1++;
+				break;
+			//question 8 answer 2
+			case "happy":
+				q8a2++;
+				break;
+			//question 8 answer 3
+			case "crazy":
+				q8a3++;
+				break;
+			//question 8 answer 4
+			case "mad":
+				q8a4++;
+				break;
+			default:
+				//end
+		} //end of switch
+	} //end of loop
+    numberOfSurveyTakers++;
+	//set items into local storage
+	localStorage.setItem("numberOfSurveyTakers", numberOfSurveyTakers);
+	localStorage.setItem("q1a1", q1a1);
+	localStorage.setItem("q1a2", q1a2);
+	localStorage.setItem("q1a3", q1a3);
+	localStorage.setItem("q1a4", q1a4);
+	
+	localStorage.setItem("q2a1", q2a1);
+	localStorage.setItem("q2a2", q2a2);
+	localStorage.setItem("q2a3", q2a3);
+	localStorage.setItem("q2a4", q2a4);
+	
+	localStorage.setItem("q3a1", q3a1);
+    localStorage.setItem("q3a2", q3a2);
+    localStorage.setItem("q3a3", q3a3);
+    localStorage.setItem("q3a4", q3a4);
+    
+    localStorage.setItem("q4a1", q4a1);
+    localStorage.setItem("q4a2", q4a2);
+    localStorage.setItem("q4a3", q4a3);
+    localStorage.setItem("q4a4", q4a4);
+    localStorage.setItem("q4a5", q4a5);
+    
+    localStorage.setItem("q5a1", q5a1);
+    localStorage.setItem("q5a2", q5a2);
+    localStorage.setItem("q5a3", q5a3);
+    localStorage.setItem("q5a4", q5a4);
+    localStorage.setItem("q5a5", q5a5);
+    
+    localStorage.setItem("q6a1", q6a1);
+    localStorage.setItem("q6a2", q6a2);
+    
+    localStorage.setItem("q7a1", q7a1);
+    localStorage.setItem("q7a2", q7a2);
+    
+    localStorage.setItem("q8a1", q8a1);
+    localStorage.setItem("q8a2", q8a2);
+    localStorage.setItem("q8a3", q8a3);
+    localStorage.setItem("q8a4", q8a4);
+} //end of function
+
+// example on how to get item stored  localStorage.getItem("q1a1") // returns 0, 1, etc.
+
+
+
+
+/*
+
+formObj = {
+	train: dream,
+	wood: none
+}
+
+for (var name in formObj) {
+	switch (formObj[name]) {
+		
+	}
+}
+
+ */
+
+
+/** -- Local Storage -- **/
+
+/*localStorage = {};
+
+localStorage.setItem(key, value);
+
+localStorage.getItem(key);*/
+
+/*************************/
+
+/*************************	For Local Storage Survey 2	*********************/
+
+/*var s2q1a1 = 0;
+var s2q1a2 = 0;
+var s2q1a3 = 0;
+var s2q1a4 = 0;
+
+var s2q2a1 = 0;
+var s2q2a2 = 0;
+var s2q2a3 = 0;
+var s2q2a4 = 0;
+
+var s2q3a1 = 0;
+var s2q3a2 = 0;*/
+/*************************	For Local Storage Survey 3	*********************/
+
+/*var s3q1a1 = 0;
+var s3q1a2 = 0;
+var s3q1a3 = 0;
+var s3q1a4 = 0;
+
+var s3q2a1 = 0;
+var s3q2a2 = 0;
+var s3q2a3 = 0;
+var s3q2a4 = 0;
+
+var s3q3a1 = 0;
+var s3q3a2 = 0;
+var s3q3a3 = 0;
+var s3q3a4 = 0;*/
+

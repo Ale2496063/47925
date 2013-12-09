@@ -9,6 +9,7 @@
 		-->
 		<title>Amy Le's Survey Site</title>
 		<link rel="stylesheet" href="stylesheet.css">
+		<script src="surveyForms.js"></script>
 	</head>
 	<body>
 		<section class="wrapper">
@@ -30,6 +31,15 @@
 			</div>
 			<div id="box">
 				<h2>Let's see how others answered!</h2>
+				<p>Each question will show the percentage of how many individuals picked a particular answer.</p>
+				<section id="survey1Results">
+					<h3>Survey 1</h3>
+					
+					<script>
+						document.write("<p>Question 1, answer 1: " + localStorage.getItem("q1a1")/localStorage.getItem("numberOfSurveyTakers")*100 + " %</p>");
+					</script>
+					
+				</section>
 			</div>
 		</section>
 		<footer>
