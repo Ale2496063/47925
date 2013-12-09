@@ -280,10 +280,12 @@ example for single question
 //every time someone takes a survey, this must run to keep track of answers
 //only keep track of radio/checkbox questions, not text input ones
 function answerTracker(formObj){
+    //variable to keep track of how many times survey has been taken
 	var numberOfSurveyTakers = localStorage.getItem('numberOfSurveyTakers') || 0;
 	//will return null if no value in local storage
 
 	//counters for each answer per question
+    //either get the value that is stored in local storage or 0, if no item is in local storage a value of null is returned
 	var q1a1 = localStorage.getItem('q1a1') || 0,        
         q1a2 = localStorage.getItem('q1a2') || 0;
 	var q1a3 = localStorage.getItem('q1a3') || 0;
@@ -432,6 +434,7 @@ function answerTracker(formObj){
 				//end
 		} //end of switch
 	} //end of loop
+    //increment our variable that keeps track of number of times survey taken
     numberOfSurveyTakers++;
 	//set items into local storage
 	localStorage.setItem("numberOfSurveyTakers", numberOfSurveyTakers);
@@ -477,22 +480,6 @@ function answerTracker(formObj){
 // example on how to get item stored  localStorage.getItem("q1a1") // returns 0, 1, etc.
 
 
-
-
-/*
-
-formObj = {
-	train: dream,
-	wood: none
-}
-
-for (var name in formObj) {
-	switch (formObj[name]) {
-		
-	}
-}
-
- */
 
 
 /** -- Local Storage -- **/
