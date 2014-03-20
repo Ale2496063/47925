@@ -165,7 +165,7 @@ function validateBoxesSurvey3(formName){
 } 
 
 /*************************	For Survey Create Account Validation	*********************/
-
+//NOTE:::: THIS FUNCTION WAS NOT UTILIZED BECAUSE DID NOT REQUIRE ACCOUNT
 function validateAccountForm (formName){
 	var formValid = false;
 	//array of our input names to go through and validate with switch
